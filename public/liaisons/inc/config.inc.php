@@ -1,4 +1,4 @@
-<?php
+<?php/*
 ini_set('display_errors', 1);
 
 // Verifier si l'exécution se fait sur le serveur de développement (local) ou celui de la production:
@@ -37,4 +37,4 @@ $pdoConnexion->exec("SET CHARACTER SET utf8");
 $pdoConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //$pdoConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 
-?>
+*/?>
