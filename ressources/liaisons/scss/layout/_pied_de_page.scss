@@ -1,7 +1,13 @@
 @use '../utilitaires/variables';
 
-.piedDePage {
+.footer {
   background-color: variables.$noir;
   padding: 5px;
-  
+  color:variables.$blanc;
+  display: flex;
+flex-direction:column
+}
+
+.div_img-logo{
+padding:10px;
 }
