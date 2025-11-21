@@ -23,9 +23,6 @@
 
 			<?php
 				$requeteSQL = "SELECT nom FROM listes";
-				$objStat = $pdoConnexion->prepare($requeteSQL);
-				$objStat->execute();
-				$arrListes = $objStat->fetchAll();
 			?>
 
 			<ul>
