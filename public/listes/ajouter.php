@@ -14,7 +14,29 @@
 </head>
 <body>
     <?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
+    <main>
+        <h1>Ajouter une liste</h1>
 
+        <form action="" method="GET">
+            <div>
+                <label for="">Nom de la liste</label>
+                <input type="text" name="" id="" value="" placeholder="Nom de la liste">
+            </div>
+            <div>
+                <label for="">Couleur de la liste</label>
+                <select id="" name="">
+                    <option value="0"></option>
+                    <option value="">Rouge</option>
+                    <option value="">Orange</option>
+                    <option value="">Jaune</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Ajouter la liste" name="btn_ajouter">
+                <input type="button" value="Annuler" name="btn_annuler">
+            </div>
+        </form>
+    </main>
 
     <?php include ($niveau . "liaisons/inc/fragments/pied_de_page.inc.php");?>
 </body>

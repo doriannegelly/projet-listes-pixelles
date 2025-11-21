@@ -1,5 +1,5 @@
 <header class="entete">
-    <a class="entete__lien-logo" href="index.php"><img class="entete__logo" src="<?php echo $niveau ?>liaisons/logo/logo_1x.png" alt="Logo TODO"></a>
+    <a class="entete__lien-logo" href="<?php echo $niveau ?>index.php"><img class="entete__logo" src="<?php echo $niveau ?>liaisons/logo/logo_1x.png" alt="Logo TODO"></a>
     <form class="entete__recherche">
         <button class="entete__btn-recherche" type="submit"><img class="entete__icon-recherche" src="<?php echo $niveau ?>liaisons/icones/loupe.svg" alt="Icone rechercher"></button>
         <input class="entete__champ-recherche" type="search">

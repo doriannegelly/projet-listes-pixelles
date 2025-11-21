@@ -70,7 +70,7 @@
 						</div>
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
-							<a class="listes__edit" href="#">Modifier la liste</a>
+							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
 							<button class="btn__supprmer" type="button">Supprimer la liste</button>
 						</div>
 					</li>
@@ -81,7 +81,7 @@
 						</div>
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
-							<a class="listes__edit" href="#">Modifier la liste</a>
+							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
 							<button class="btn__supprmer" type="button">Supprimer la liste</button>
 						</div>
 					</li>
@@ -92,7 +92,7 @@
 						</div>
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
-							<a class="listes__edit" href="#">Modifier la liste</a>
+							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
 							<button class="btn__supprmer" type="button">Supprimer la liste</button>
 						</div>
 					</li>
@@ -103,7 +103,7 @@
 						</div>
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
-							<a class="listes__edit" href="#">Modifier la liste</a>
+							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
 							<button class="btn__supprmer" type="button">Supprimer la liste</button>
 						</div>
 					</li>
