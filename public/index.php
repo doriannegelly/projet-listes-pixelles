@@ -108,6 +108,8 @@
 						</div>
 					</li>
 				</ul>
+				<a class="listes__ajouter-liste" href="listes/ajouter.php"><img class="listes__icone-ajouter" src="<?php echo $niveau ?>liaisons/icones/plus2.svg" alt="Icone ajouter une liste">Ajouter une liste</a>
+			</section>
 	</main>
 	
 	<!--<aside>
