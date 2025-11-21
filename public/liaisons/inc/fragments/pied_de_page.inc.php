@@ -1,3 +1,2 @@
 <footer class="piedDePage">
-    <h5 class="piedDePage__copyrights">&copy; Copyright Prénom Nom</h5>
-</footer>
+    <h5 class="piedDePage__copyrights">&copy;Technique d’intégration multimédia Alice Tremblay et Dorianne Gelly </h5>
