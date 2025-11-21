@@ -1,3 +1,15 @@
-
+@charset "UTF-8";
+/**
+* @author Alice Tremblay
+*/
+/** Polices de caractères **/
+/** Palette de couleurs **/
+/* Couleurs de base */
+/* Autres couleurs */
+/** Points de rupture **/
+.item_ajout-plus {
+  background-color: #000000;
+  padding: 1rem;
+}
 
 /*# sourceMappingURL=alice.css.map */

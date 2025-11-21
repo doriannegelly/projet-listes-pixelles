@@ -1,4 +1,4 @@
-Ajouter un item!
+
 <?php $niveau="../";?>
 <a href="<?php echo $niveau;?>index.php">Retour</a>
 
@@ -13,7 +13,10 @@ Ajouter un item!
 	<title>Ajouter un item - Alice</title>
 	<?php include ($niveau . "liaisons/inc/fragments/head_links.inc.php");?>
 </head>
-
+	<?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
 <body>
-    	<?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
+<main>
+        <h1>Ajouter un item</h1>
+</main>
+    	<?php include ($niveau . "liaisons/inc/fragments/pied_de_page.inc.php");?>
 </body>
