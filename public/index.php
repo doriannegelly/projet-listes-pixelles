@@ -19,54 +19,103 @@
 
 	<main>
 		<div id="contenu" class="conteneur">
-			<h2>Entête de page</h2>
+			<section class="due">
+				<h1 class="due__titre">À échéance</h1>
 
-			<?php
-				$requeteSQL = "SELECT nom FROM listes";
-			?>
-
-			<ul>
-				<?php foreach($arrListes as $liste): ?>
-					<li><?= $liste["nom"] ?></li><br>
-				<?php endforeach; ?>
-			</ul>
-
-			<section>
-				<h3>Entête de section</h3>
-				<article>
-					<header>
-						<h4>Entête d'article</h4>
-					</header>
-					<p>Lorem ipsum dolor HTML5 nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna.</p>
-					<p>Per inceptos himenaeos. Quisque feugiat, justo at vehicula pellentesque, turpis lorem dictum nunc.</p>
-					<footer>
-						<h5>Pied d'article</h5>
-					</footer>
-				</article>
-				<article>
-					<header>
-						<h4>Entête d'article</h4>
-					</header>
-					<p>Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio</p>
-					<footer>
-						<h5>Pied d'article</h5>
-					</footer>
-				</article>
+				<div class="due__cards">
+					<ul class="due__list">
+						<li class="due__item">
+							<div class="due__item-contenu">
+								<input class=due__card-checkbox type="checkbox">
+								<h2 class="due__card-titre">Titre de la tâche</h2>
+							</div>
+							<div class="due__item-actions">
+								<a class="due__item-editer" href="#">Éditer Item</a>
+								<button class="btn__supprmer" type="button">Supprimer l'item</button>
+							</div>
+						</li>
+						<li class="due__item">
+							<div class="due__item-contenu">
+								<input class=due__card-checkbox type="checkbox">
+								<h2 class="due__card-titre">Titre de la tâche</h2>
+							</div>
+							<div class="due__item-actions">
+								<a class="due__item-editer" href="#">Éditer Item</a>
+								<button class="btn__supprmer" type="button">Supprimer l'item</button>
+							</div>
+						</li>
+						<li class="due__item">
+							<div class="due__item-contenu">
+								<input class=due__card-checkbox type="checkbox">
+								<h2 class="due__card-titre">Titre de la tâche</h2>
+							</div>
+							<div class="due__item-actions">
+								<a class="due__item-editer" href="#">Éditer Item</a>
+								<button class="btn__supprmer" type="button">Supprimer l'item</button>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</section>
-		</div>
-	
-   
-        <p><a href="#" class="bouton">Bouton</a></p>
-		<p><a href="#" class="bouton--inverse">Bouton</a></p>
-     	<a href="#" class="hyperlien">lien test!</a>
+			<section class="listes">
+				<h1 class="listes__titre">Listes</h1>
+				<div class="listes__controls">
+					<button class="listes__filtre" type="button">Filtrer <img class="listes__icone-filtre" src="<?php echo $niveau ?>liaisons/icones/chevronNoir.svg" alt="Icone filtre"></button>
+				</div>
+				<ul class="listes__list">
+					<li class="listes__item">
+						<div class=listes__item-contenu>
+							<h2 class="list__titre">Titre de la liste</h2>
+							<p class="listes__item-count">Nombre de tâches</p>
+						</div>
+						<div class="listes__item-actions">
+							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
+							<a class="listes__edit" href="#">Modifier la liste</a>
+							<button class="btn__supprmer" type="button">Supprimer la liste</button>
+						</div>
+					</li>
+					<li class="listes__item">
+						<div class=listes__item-contenu>
+							<h2 class="list__titre">Titre de la liste</h2>
+							<p class="listes__item-count">Nombre de tâches</p>
+						</div>
+						<div class="listes__item-actions">
+							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
+							<a class="listes__edit" href="#">Modifier la liste</a>
+							<button class="btn__supprmer" type="button">Supprimer la liste</button>
+						</div>
+					</li>
+					<li class="listes__item">
+						<div class=listes__item-contenu>
+							<h2 class="list__titre">Titre de la liste</h2>
+							<p class="listes__item-count">Nombre de tâches</p>
+						</div>
+						<div class="listes__item-actions">
+							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
+							<a class="listes__edit" href="#">Modifier la liste</a>
+							<button class="btn__supprmer" type="button">Supprimer la liste</button>
+						</div>
+					</li>
+					<li class="listes__item">
+						<div class=listes__item-contenu>
+							<h2 class="list__titre">Titre de la liste</h2>
+							<p class="listes__item-count">Nombre de tâches</p>
+						</div>
+						<div class="listes__item-actions">
+							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
+							<a class="listes__edit" href="#">Modifier la liste</a>
+							<button class="btn__supprmer" type="button">Supprimer la liste</button>
+						</div>
+					</li>
+				</ul>
 	</main>
 	
-	<aside>
+	<!--<aside>
         <h3>Barre latérale</h3>
         <p>
         	Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio rhoncus
         </p>
-	</aside>
+	</aside>!-->
 	
 	
 	<?php include ($niveau . "liaisons/inc/fragments/pied_de_page.inc.php");?>
