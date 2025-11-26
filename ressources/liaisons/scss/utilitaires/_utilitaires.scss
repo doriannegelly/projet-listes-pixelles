@@ -1,0 +1,15 @@
+/**
+* @author Dorianne Gelly <2462485@csfoy.ca>
+* CSS des marges
+*/
+
+/* Marges */
+.conteneur {
+    margin: 0 15px;
+    min-width: 340px;
+}
+@media(min-width: 600px){
+    .conteneur {
+        margin: 0 10%;
+    }
+}
