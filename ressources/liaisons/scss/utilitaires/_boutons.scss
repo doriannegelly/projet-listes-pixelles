@@ -1,0 +1,12 @@
+@use './variables';
+
+/* Bouton supprimer */
+.btn__supprimer {
+    background-color: variables.$noir;
+    color: variables.$blanc;
+    padding: 12px 16px;
+    font-size: 18px;
+    border-radius: 15px;
+}
+
+/* Liens */

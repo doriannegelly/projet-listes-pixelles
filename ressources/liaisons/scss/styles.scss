@@ -36,8 +36,10 @@
 @use 'utilitaires/variables';
 @use 'utilitaires/typo';
 @use 'utilitaires/utilitaires';
+@use 'utilitaires/boutons';
 
 /****** MODULES *****************************/
+@use "modules/dorianne";
 
 /****** LAYOUT *****************************/
 @use "layout/accueil";

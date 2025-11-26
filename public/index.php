@@ -26,32 +26,41 @@
 					<ul class="due__list">
 						<li class="due__item">
 							<div class="due__item-contenu">
+								<div class="due__card-checkbox-container">
 								<input class=due__card-checkbox type="checkbox">
 								<h2 class="due__card-titre">Titre de la tâche</h2>
+								</div>
+								<p class="due__card-date">Date d'échéance: 1er juillet 2025</p>
 							</div>
 							<div class="due__item-actions">
 								<a class="due__item-editer" href="#">Éditer Item</a>
-								<button class="btn__supprmer" type="button">Supprimer l'item</button>
+								<button class="btn__supprimer" type="button">Supprimer l'item</button>
 							</div>
 						</li>
 						<li class="due__item">
 							<div class="due__item-contenu">
+								<div class="due__card-checkbox-container">
 								<input class=due__card-checkbox type="checkbox">
 								<h2 class="due__card-titre">Titre de la tâche</h2>
+								</div>
+								<p class="due__card-date">Date d'échéance: 1er juillet 2025</p>
 							</div>
 							<div class="due__item-actions">
 								<a class="due__item-editer" href="#">Éditer Item</a>
-								<button class="btn__supprmer" type="button">Supprimer l'item</button>
+								<button class="btn__supprimer" type="button">Supprimer l'item</button>
 							</div>
 						</li>
 						<li class="due__item">
 							<div class="due__item-contenu">
+								<div class="due__card-checkbox-container">
 								<input class=due__card-checkbox type="checkbox">
 								<h2 class="due__card-titre">Titre de la tâche</h2>
+								</div>
+								<p class="due__card-date">Date d'échéance: 1er juillet 2025</p>
 							</div>
 							<div class="due__item-actions">
 								<a class="due__item-editer" href="#">Éditer Item</a>
-								<button class="btn__supprmer" type="button">Supprimer l'item</button>
+								<button class="btn__supprimer" type="button">Supprimer l'item</button>
 							</div>
 						</li>
 					</ul>
@@ -71,7 +80,7 @@
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
 							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
-							<button class="btn__supprmer" type="button">Supprimer la liste</button>
+							<button class="btn__supprimer" type="button">Supprimer la liste</button>
 						</div>
 					</li>
 					<li class="listes__item">
@@ -82,7 +91,7 @@
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
 							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
-							<button class="btn__supprmer" type="button">Supprimer la liste</button>
+							<button class="btn__supprimer" type="button">Supprimer la liste</button>
 						</div>
 					</li>
 					<li class="listes__item">
@@ -93,7 +102,7 @@
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
 							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
-							<button class="btn__supprmer" type="button">Supprimer la liste</button>
+							<button class="btn__supprimer" type="button">Supprimer la liste</button>
 						</div>
 					</li>
 					<li class="listes__item">
@@ -104,7 +113,7 @@
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
 							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
-							<button class="btn__supprmer" type="button">Supprimer la liste</button>
+							<button class="btn__supprimer" type="button">Supprimer la liste</button>
 						</div>
 					</li>
 				</ul>

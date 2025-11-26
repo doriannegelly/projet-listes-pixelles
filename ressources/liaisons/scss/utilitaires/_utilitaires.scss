@@ -2,6 +2,7 @@
 * @author Dorianne Gelly <2462485@csfoy.ca>
 * CSS des marges
 */
+@use './variables';
 
 /* Marges */
 .conteneur {
@@ -12,4 +13,8 @@
     .conteneur {
         margin: 0 10%;
     }
+}
+
+body {
+    background-color: variables.$beige;
 }

@@ -1,0 +1,117 @@
+@use '../utilitaires/variables';
+
+/* À ÉCHÉANCE */
+/*.due__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.due__cards {
+    width: 100%;
+    height: auto;
+}
+
+.due__item {
+    padding: 1rem;
+    border: solid 10px #B6CBEC;
+    border-radius: 19px;
+}
+
+.due__item-contenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.due__card-titre {
+    margin: 0;
+}*/
+
+.due__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3px;
+}
+
+/* cartes */
+.due__item {
+    border-radius: 30px;
+    border: solid 10px #B6CBEC;
+    box-sizing: border-box;
+    padding: 1rem 1rem 1rem 1.5rem;
+    position: relative;   
+    overflow: hidden;
+}
+
+.due__item-contenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.due__card-checkbox-container {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    gap: 8px;
+}
+
+.due__card-titre {
+    margin: 0;
+}
+
+.due__card-checkbox {
+    margin-top: 10px;
+}
+
+.due__card-date {
+    margin: 0;
+    text-align: right;
+}
+
+.due__item-editer {
+    color: variables.$noir;
+}
+
+.due__item-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+/* trait */
+.due__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background-color: variables.$beigeFonce;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+}
+
+@media (min-width: 700px) {
+    .due__list {
+        grid-template-columns: 1fr 1fr;
+        gap: 3px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .due__list {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 3px;
+    }
+}
