@@ -1,0 +1,43 @@
+/**
+* @author Alice Tremblay 
+*/
+
+@use 'sass:color';
+@use './variables';
+/**** Typographie responsive ****/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: variables.$fontePrimaire;
+  font-size: 16px; 
+  font-size: 1.6rem;
+  line-height: 1.375;
+}
+
+
+h1{
+font-family: variables.$fonteSecondaire;
+font-size: 40px;
+}
+
+@media(min-width:800px){
+  h1{
+font-family: variables.$fonteSecondaire;
+font-size: 80px;
+}
+}
+
+h2{
+  font-family: variables.$fontePrimaire ;
+font-size: 25px;
+font-weight: semi-bold;
+}
+
+h3{
+  font-family: variables.$fontePrimaire ;
+  font-size: 20px;
+  font-weight: regular;
+}
+

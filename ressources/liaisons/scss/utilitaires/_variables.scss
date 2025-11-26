@@ -4,6 +4,19 @@
 
 /** Polices de caractères **/
 
+/** Police locale **/
+@font-face {
+  font-family: 'Brice';
+  src: url('../../../public/liaisons/fonts/Brice-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../../../public/liaisons/fonts/Mulish-VariableFont_wght.ttf') format('truetype');
+}
+
+$fontePrimaire: "Mulish";
+$fonteSecondaire: 'Brice';
+
 /** Palette de couleurs **/
 // Utiliser http://chir.ag/projects/name-that-color pour obtenir des noms uniques et mémorisables
 // Permettez-vous d'utiliser un nom de variable plus explicite si la suggestion de name-that-color est trop étrange

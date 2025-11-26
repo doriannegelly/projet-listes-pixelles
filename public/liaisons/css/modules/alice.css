@@ -3,6 +3,15 @@
 * @author Alice Tremblay
 */
 /** Polices de caractères **/
+/** Police locale **/
+@font-face {
+  font-family: "Brice";
+  src: url("../../../public/liaisons/fonts/Brice-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Mulish";
+  src: url("../../../public/liaisons/fonts/Mulish-VariableFont_wght.ttf") format("truetype");
+}
 /** Palette de couleurs **/
 /* Couleurs de base */
 /* Autres couleurs */
