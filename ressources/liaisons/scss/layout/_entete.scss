@@ -4,6 +4,9 @@
   background-color: variables.$noir;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap; 
+  min-width: 320px;
   
   &__titre {
     padding: 20px;
@@ -14,5 +17,88 @@
   }
 }
 
-/* Recherche */
+.entete__lien-logo {
+  order: 1;
+}
 
+/* Recherche */
+.entete__recherche {
+  order: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15px;
+  background-color: variables.$blanc;
+  height: 40px;
+  border-radius: 30px;
+  width: 100%;     
+}
+
+.entete__btn-recherche {
+  background-color: variables.$rose;
+  border: none;
+  border-radius: 20px;
+  height: 35px;
+  margin: 5px;
+}
+
+.entete__champ-recherche {
+  border: none;
+  font-size: 16px;
+  width: 200px;
+  margin-left: 0px;
+  margin-right: 10px;
+  font-family: mulish;
+  width: 100%;
+}
+
+.entete__btn-annuler {
+  background-color: transparent;
+  border: none;
+  margin-right: 5px;
+  justify-self: flex-end;
+}
+
+/* Profil utilisateur */
+.entete__lien-profil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.entete__profil {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: auto;
+
+}
+
+.entete__nom-profil {
+  margin: 0;
+  margin-top: 5px;
+  color: variables.$blanc;
+  font-family: mulish;
+}
+
+@media (min-width: 650px) {
+  .entete {
+    flex-wrap: nowrap;
+  }
+  .entete__recherche {
+    order: 1;
+    width: 350px;
+    margin-left: 100px;
+  }
+
+  .entete__champ-recherche {
+    max-width: 300px;
+  }
+
+  .entete__profil {
+    justify-self: flex-end;
+  }
+}
