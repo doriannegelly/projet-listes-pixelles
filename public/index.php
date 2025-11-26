@@ -79,8 +79,10 @@
 						</div>
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
+							<div class="actions__spacer">
 							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
 							<button class="btn__supprimer" type="button">Supprimer la liste</button>
+							</div>
 						</div>
 					</li>
 					<li class="listes__item">
@@ -90,8 +92,10 @@
 						</div>
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
+							<div class="actions__spacer">
 							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
 							<button class="btn__supprimer" type="button">Supprimer la liste</button>
+							</div>
 						</div>
 					</li>
 					<li class="listes__item">
@@ -101,8 +105,10 @@
 						</div>
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
+							<div class="actions__spacer">
 							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
 							<button class="btn__supprimer" type="button">Supprimer la liste</button>
+							</div>
 						</div>
 					</li>
 					<li class="listes__item">
@@ -112,12 +118,20 @@
 						</div>
 						<div class="listes__item-actions">
 							<a class="listes__view" href="#">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
+							<div class="actions__spacer">
 							<a class="listes__edit" href="listes/modifier.php">Modifier la liste</a>
 							<button class="btn__supprimer" type="button">Supprimer la liste</button>
+							</div>
 						</div>
 					</li>
 				</ul>
-				<a class="listes__ajouter-liste" href="listes/ajouter.php"><img class="listes__icone-ajouter" src="<?php echo $niveau ?>liaisons/icones/plus2.svg" alt="Icone ajouter une liste">Ajouter une liste</a>
+				<a class="listes__ajouter-item" href="listes/ajouter.php">
+					<span class="ajouter-item__icone">
+						<img class="ajouter-item__svg" src="<?php echo $niveau ?>liaisons/icones/plus2.svg" alt="">
+					</span>
+					AJOUTER UN ITEM
+				</a>
+
 			</section>
 	</main>
 	
