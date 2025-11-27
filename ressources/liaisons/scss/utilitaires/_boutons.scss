@@ -1,13 +1,28 @@
 @use './variables';
 
-/* Bouton supprimer */
-.btn__supprimer {
+/* Bouton supprimer et bouton ajouter et bouton modifier */
+.btn__supprimer, .btn__ajouter, .btn__modifier {
     background-color: variables.$noir;
     color: variables.$blanc;
     padding: 12px 16px;
     font-size: 18px;
     border-radius: 15px;
     max-width: 600px;
+    border-color: transparent;
+
+}
+
+/* Bouton annuler */
+.btn__annuler {
+    background-color: transparent;
+    border-radius: 15px;
+    padding: 10px 16px;
+    font-size: 18px;
+    border: 1px solid variables.$noir;
+}
+.btn__annuler:hover {
+    border: 2px solid variables.$noir;
+    font-weight: bold;
 }
 
 /* Ajouter item ou liste */
