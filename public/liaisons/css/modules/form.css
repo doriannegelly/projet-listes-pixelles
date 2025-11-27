@@ -6,8 +6,8 @@
 /** Polices de caractères **/
 /** Police locale **/
 @font-face {
-  font-family: "Brice";
-  src: url("../../../public/liaisons/fonts/Brice-Regular.otf") format("opentype");
+  font-family: "Acorn";
+  src: url("../../../public/liaisons/fonts/Acorn-Medium.ttf") format("truetype");
 }
 @font-face {
   font-family: "Mulish";

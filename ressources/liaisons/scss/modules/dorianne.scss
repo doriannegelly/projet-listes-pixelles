@@ -43,6 +43,10 @@
     margin-top: 10px;
 }
 
+.due__titre {
+    margin-bottom: 0;
+}
+
 .due__card-date {
     margin: 0;
     text-align: right;
@@ -72,7 +76,7 @@
     border-bottom-left-radius: 9px;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 600px) {
     .due__list {
         grid-template-columns: 1fr 1fr;
         gap: 3px;

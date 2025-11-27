@@ -5,8 +5,8 @@
 /** Polices de caractères **/
 /** Police locale **/
 @font-face {
-  font-family: "Brice";
-  src: url("../../../public/liaisons/fonts/Brice-Regular.otf") format("opentype");
+  font-family: "Acorn";
+  src: url("../../../public/liaisons/fonts/Acorn-Medium.ttf") format("truetype");
 }
 @font-face {
   font-family: "Mulish";
@@ -59,6 +59,10 @@
   margin-top: 10px;
 }
 
+.due__titre {
+  margin-bottom: 0;
+}
+
 .due__card-date {
   margin: 0;
   text-align: right;
@@ -88,7 +92,7 @@
   border-bottom-left-radius: 9px;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 600px) {
   .due__list {
     grid-template-columns: 1fr 1fr;
     gap: 3px;
