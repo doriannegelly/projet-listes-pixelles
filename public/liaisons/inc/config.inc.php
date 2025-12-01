@@ -1,4 +1,4 @@
-<?php/*
+<?php
 ini_set('display_errors', 1);
 
 // Verifier si l'exécution se fait sur le serveur de développement (local) ou celui de la production:
@@ -11,18 +11,18 @@ if (stristr($_SERVER['HTTP_HOST'], 'local') || (substr($_SERVER['HTTP_HOST'], 0,
 // Selon l'environnement d'exécution (développement ou production)
 if ($blnLocal) {
     $strHost = 'localhost';
-    $strBD = '25_rpni1_tofu';
+    $strBD = '25_rpni1_pixelles';
     $strUser = 'root';
-    $strPassword = '';
+    $strPassword = 'root';
     // $strUser = 'rpni1_user';
     // $strPassword= 'rpni1_mdp';
     error_reporting(E_ALL);
 } else {
     // En ligne
-    $strHost = 'localhost';
-    $strBD = '25_rpni1_tofu';
-    $strUser = '25_rpni1_user';
-    $strPassword = '25_rpni1_mdp';
+    $strHost = 'timunix3.csfoy.ca';
+    $strBD = '25_rpni1_pixelles';
+    $strUser = '25_rpni1_pixelles';
+    $strPassword = 'SxEnZcIK[V(uy(Xz';
     error_reporting(E_ALL & ~E_NOTICE);
 }
 
@@ -37,4 +37,4 @@ $pdoConnexion->exec("SET CHARACTER SET utf8");
 $pdoConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //$pdoConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 
-*/?>
+?>
