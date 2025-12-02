@@ -1,5 +1,12 @@
 @use '../utilitaires/variables';
 
+.conteneur{
+    transition: margin-left 0.4s ease;
+}
+.conteneur_menu{
+        margin:2%;
+}
+
 .menu__controle {
     background-color: variables.$rose;
     border: none;
@@ -34,12 +41,23 @@
     background-color: variables.$noir;
     display: block;
     padding: 5px 10px;
-    width: 20%;
+    width: 50%;
     color: variables.$blanc;
 }
 
+@media (min-width: 601px) {
+    .menu__lien {
+         width: 20%;
+    }
+}
+
+
+
 .ligne{
+    border: none;
         width: 20%;
+         margin: 0;
+    border-top: solid variables.$gris;
 }
 
 .menu__lien:link,
@@ -71,18 +89,31 @@
  * le menu restera tout de même visible à l'utilisateur.
  */
 
-.js .menu__liste {
-    max-height: 100vh;
+.menu {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    height: 100vh;
     overflow: hidden;
-    transition: max-height 0.5s;
-}
-
-.js .menu--ferme .menu__liste {
-    max-height: 0;
-}
-@media (min-width: 601px) {
-    .js .menu--ferme .menu__liste {
-        max-height: 0;
-    }
+    background-color: transparent; 
+    transition: width 0.3s;
 
 }
+
+/* Menu fermé */
+.menu--ferme {
+    width: 0;
+}
+
+.menu--ouvert {
+    width: 250px; /* largeur que tu veux */
+}
+
+/* Le contenu se déplace à droite quand le menu est ouvert */
+.menu--ouvert ~ .conteneur {
+    margin-left: 250px;
+    transition: margin-left 0.3s;
+}
+
+
+

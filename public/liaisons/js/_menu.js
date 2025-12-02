@@ -28,7 +28,7 @@ var menu = {
     this.refLibelle.innerHTML = this.lblMenuFerme;
 
     // Ajout du bouton dans l'entête de la page html
-    this.refMenu.prepend(this.refBouton);
+this.refMenu.parentNode.insertBefore(this.refBouton, this.refMenu);
 
     // Ajout de l'écouteur d'événement sur le bouton du menu
     // this.refBouton.addEventListener('click', function () {
@@ -41,6 +41,8 @@ var menu = {
   {
     // On bascule la classe de fermeture du menu
     this.refMenu.classList.toggle("menu--ferme");
+
+    this.refMenu.classList.toggle("menu--ouvert");
 
     // On change le libellé du bouton selon l'état du menu
     if (this.refMenu.classList.contains("menu--ferme"))
