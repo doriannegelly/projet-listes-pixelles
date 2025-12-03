@@ -18,7 +18,7 @@
  <div class="conteneur_menu">
         <nav class="menu menu--ferme">
             <ul class="menu__liste">
-                <li class="menu__listeItem"><a href="#" class="menu__lien"><img class="item_ajout-plus"src="../liaisons/icones/maison.svg">Accueil</a></li>
+                <li class="menu__listeItem"><a href="../index.php" class="menu__lien"><img class="item_ajout-plus"src="../liaisons/icones/maison.svg">Accueil</a></li>
 				<li class="menu__listeItem"><a class="ajout_item menu__lien" href="./ajouter.php"><img class="item_ajout-plus"src="../liaisons/icones/plus.svg">Ajouter un item</a></li>
   <li class="menu__listeItem"><span class="menu__lien">Mes listes</span>
 	<hr class="ligne"></li>
