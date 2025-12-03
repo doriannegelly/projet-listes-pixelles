@@ -91,13 +91,9 @@
 
 .menu {
     position: fixed; 
-    top: 0;
-    left: 0;
     height: 100vh;
     overflow: hidden;
-    background-color: transparent; 
-    transition: width 0.3s;
-
+    background-color: transparent;
 }
 
 /* Menu fermé */
@@ -106,13 +102,12 @@
 }
 
 .menu--ouvert {
-    width: 250px; /* largeur que tu veux */
+    width: 170vh; /* largeur que tu veux */
 }
 
 /* Le contenu se déplace à droite quand le menu est ouvert */
 .menu--ouvert ~ .conteneur {
     margin-left: 250px;
-    transition: margin-left 0.3s;
 }
 
 
