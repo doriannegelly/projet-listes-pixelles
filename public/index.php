@@ -129,7 +129,7 @@
 					<span class="ajouter-item__icone">
 						<img class="ajouter-item__svg" src="<?php echo $niveau ?>liaisons/icones/plus2.svg" alt="">
 					</span>
-					AJOUTER UN ITEM
+					AJOUTER UNE LISTE
 				</a>
 
 			</section>
