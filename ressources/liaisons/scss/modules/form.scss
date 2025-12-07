@@ -48,14 +48,6 @@
     border: 2px solid transparent;
 }
 
-/* couleurs */
-.liste-couleur__swatch--rose  { background-color: #F5B7DB; }
-.liste-couleur__swatch--jaune { background-color: #F6D868; }
-.liste-couleur__swatch--vert  { background-color: #9AAC63; }
-.liste-couleur__swatch--bleu  { background-color: #B6CBEC; }
-.liste-couleur__swatch--rouge { background-color: #EE8C8D; }
-.liste-couleur__swatch--lilas { background-color: #DECAF0; }
-
 /* état sélectionné : petit contour ou check visuel */
 .liste-couleur__radio:checked + .liste-couleur__swatch {
     outline: 2px solid #333;

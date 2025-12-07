@@ -149,8 +149,8 @@
 
 .listes__item {
   border-radius: 15px;
-  background-color: #F6D868;
   padding: 2rem 1rem 2rem 2rem;
+  background-color: var(--couleur-principale);
   position: relative;
   overflow: hidden;
 }
@@ -214,7 +214,7 @@
   top: 0;
   width: 10px;
   height: 100%;
-  background-color: #E8C94E;
+  background-color: var(--couleur-bordure);
   border-top-left-radius: 9px;
   border-bottom-left-radius: 9px;
 }
