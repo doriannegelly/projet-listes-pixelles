@@ -7,6 +7,25 @@ $strFichierTexte=file_get_contents($niveau."liaisons/js/objJSONMessages.json");
 $jsonMessages=json_decode($strFichierTexte);
 
 $id_utilisateur = 1;
+
+if (isset($_GET['btn_supprimer'])) {
+	$id_liste = $_GET['id'];
+    //Établissement de la chaine de requête suppression
+    $strRequete = "DELETE FROM listes WHERE id=:id_liste";
+    //Exécution de la requêtre
+    $pdosResultat = $pdoConnexion->prepare($strRequete);
+    //$pdosResultat = $pdoConnexion->query($strRequete);
+    //Binder le paramètre :id_participant avec la variable $id
+    $pdosResultat->bindParam(':id_liste', $id_liste);
+
+	$pdosResultat->execute();
+
+    $pdosResultat->closeCursor();
+    var_dump($pdoConnexion->errorInfo());
+    //Récuperation du code d'erreur
+    $strCodeErreur = $pdoConnexion->errorCode();
+	header("Location: index.php?strCodeOperation=liste_supprimee");
+}
 // LISTES 
 
 // Établissement de la chaine de requête SQL
@@ -53,24 +72,6 @@ for($cptEnr=0;$ligne=$pdosResultat->fetch();$cptEnr ++){
 }
 $pdosResultat ->closecursor();
 
-if (isset($_GET['btn_supprimer'])) {
-	$id_liste = $_GET['id'];
-    //Établissement de la chaine de requête suppression
-    $strRequete = "DELETE FROM listes WHERE id=:id_liste";
-    //Exécution de la requêtre
-    $pdosResultat = $pdoConnexion->prepare($strRequete);
-    //$pdosResultat = $pdoConnexion->query($strRequete);
-    //Binder le paramètre :id_participant avec la variable $id
-    $pdosResultat->bindParam(':id_liste', $id_liste);
-
-	$pdosResultat->execute();
-
-    $pdosResultat->closeCursor();
-    var_dump($pdoConnexion->errorInfo());
-    //Récuperation du code d'erreur
-    $strCodeErreur = $pdoConnexion->errorCode();
-	header("Location: index.php?strCodeOperation=liste_supprimee");
-}
 ?>
 
 <!DOCTYPE html>
@@ -110,45 +111,21 @@ if (isset($_GET['btn_supprimer'])) {
 
 				<div class="due__cards">
 					<ul class="due__list">
-						<li class="due__item">
+						<?php for($cpt=0; $cpt<count($arrDue); $cpt++){ ?>
+						<li class="due__item" style="--couleur-tour: <?php echo "#".$arrDue[$cpt]['hexadecimal']; ?>;">
 							<div class="due__item-contenu">
 								<div class="due__card-checkbox-container">
 								<input class=due__card-checkbox type="checkbox">
-								<h2 class="due__card-titre">Titre de la tâche</h2>
+								<h2 class="due__card-titre"><?php echo $arrDue[$cpt]['nom_items']; ?></h2>
 								</div>
-								<p class="due__card-date">Date d'échéance: 1er juillet 2025</p>
+								<p class="due__card-date">Date d'échéance: <?php echo $arrDue[$cpt]['echeance']; ?></p>
 							</div>
 							<div class="due__item-actions">
 								<a class="due__item-editer" href="#">Éditer Item</a>
 								<button class="btn__supprimer" type="button">Supprimer l'item</button>
 							</div>
 						</li>
-						<li class="due__item">
-							<div class="due__item-contenu">
-								<div class="due__card-checkbox-container">
-								<input class=due__card-checkbox type="checkbox">
-								<h2 class="due__card-titre">Titre de la tâche</h2>
-								</div>
-								<p class="due__card-date">Date d'échéance: 1er juillet 2025</p>
-							</div>
-							<div class="due__item-actions">
-								<a class="due__item-editer" href="#">Éditer Item</a>
-								<button class="btn__supprimer" type="button">Supprimer l'item</button>
-							</div>
-						</li>
-						<li class="due__item">
-							<div class="due__item-contenu">
-								<div class="due__card-checkbox-container">
-								<input class=due__card-checkbox type="checkbox">
-								<h2 class="due__card-titre">Titre de la tâche</h2>
-								</div>
-								<p class="due__card-date">Date d'échéance: 1er juillet 2025</p>
-							</div>
-							<div class="due__item-actions">
-								<a class="due__item-editer" href="#">Éditer Item</a>
-								<button class="btn__supprimer" type="button">Supprimer l'item</button>
-							</div>
-						</li>
+						<?php } ?>
 					</ul>
 				</div>
 			</section>
@@ -174,20 +151,38 @@ if (isset($_GET['btn_supprimer'])) {
 							<a class="listes__view" href="items/afficher.php?id_liste=<?php echo $arrListes[$cpt]['id']; ?>">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
 							<div class="actions__spacer">
 							<a class="listes__edit" href="listes/modifier.php?id_liste=<?php echo $arrListes[$cpt]['id']; ?>">Modifier la liste</a>
-							<input class="btn__supprimer" type="submit" value="Supprimer" name="btn_supprimer"><br>
+							<a href="index.php?id=<?php echo $arrListes[$cpt]['id']; ?>&nom=<?php echo $arrListes[$cpt]['nom']; ?>#modale2" class="btn__supprimer">Supprimer</a>
 							</div>
 						</form>
 						</div>
-					</li>
-				<?php } ?>	
+					</li>			
+					<?php } ?>	
+					<div id="modale2" class="boiteModale">
+    					<div class="boiteModale__dialogue">
+    					    <div class="boiteModale__fenetre">
+    					        <header class="boiteModale__entete">
+    					            <a href="index.php#" class="btn btn--fermer">Fermer</a>
+    					        </header>
+    					        <div class="boiteModale__contenu">
+    					            <p>Voulez-vous vraiment supprimer la liste <strong><?php echo $_GET['nom']; ?></strong>  et tout ce qu'elle contient?</p>
+    					        </div>
+    					        <footer class="boiteModale__actions">
+									<form action="index.php" method="GET">
+									<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
+									<a href="index.php#" class="btn">Annuler</a>
+									<input class="btn btn--danger" type="submit" value="Supprimer" name="btn_supprimer">
+									</form>
+    					        </footer>
+    					    </div>
+    					</div>
+					</div>	
 				</ul>
-				<a class="listes__ajouter-item" href="listes/ajouter.php">
+				<a class="listes__ajouter-item" href="listes/ajouter.php?btn_nouveau">
 					<span class="ajouter-item__icone">
 						<img class="ajouter-item__svg" src="<?php echo $niveau ?>liaisons/icones/plus2.svg" alt="">
 					</span>
 					AJOUTER UNE LISTE
 				</a>
-
 			</section>
 	</main>
 	

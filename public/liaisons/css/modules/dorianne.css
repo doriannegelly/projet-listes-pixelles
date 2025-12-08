@@ -29,7 +29,7 @@
 /* cartes */
 .due__item {
   border-radius: 30px;
-  border: solid 10px #B6CBEC;
+  border: solid 10px var(--couleur-tour);
   box-sizing: border-box;
   padding: 1rem 1rem 1rem 1.5rem;
   position: relative;
@@ -92,13 +92,13 @@
   border-bottom-left-radius: 9px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .due__list {
     grid-template-columns: 1fr 1fr;
     gap: 3px;
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
   .due__list {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 3px;

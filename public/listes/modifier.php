@@ -68,7 +68,7 @@ for($cptEnr=0;$ligne=$pdosResultat->fetch();$cptEnr ++){
 }
 $pdosResultat ->closecursor();
 
-if (isset($_GET['btn_modifier']) || isset($_GET["btn_supprimer"])) {
+if (isset($_GET['btn_modifier'])) {
     $arrListe["id"] = $_GET["id_liste"];
     $arrListe["nom"] = $_GET["nom"];
     $arrListe["couleur_id"] = $_GET["couleur_id"];
@@ -141,6 +141,7 @@ if (isset($_GET['btn_modifier']) || isset($_GET["btn_supprimer"])) {
             <h1>Éditer la liste - Nom de la liste</h1>
 
             <form action="modifier.php" method="GET">
+                <input type="hidden" name="id_liste" value="<?php echo $arrListe['id']; ?>">
                 <div class="champ-formulaire">
                     <label class="champ-formulaire__label" for="nom">Nom de la liste</label>
                     <input class="champ-formulaire__input" type="text" name="nom" id="nom" value="<?php echo $arrListe['nom']; ?>">
