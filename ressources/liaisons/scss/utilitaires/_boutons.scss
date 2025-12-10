@@ -84,10 +84,20 @@
 
 .listes__ajouter-item:hover .ajouter-item__icone {
     background-color: transparent;
-    border: 2px solid black;
+    border: 2px solid variables.$noir;
 
 }
 
 .listes__ajouter-item:hover .ajouter-item__svg {
     filter: invert(0);
+}
+
+/* EDIT */
+.listes__edit:hover, .due__item-editer:hover, .listes__view:hover {
+    font-weight: bold;
+}
+
+.listes__edit:focus-visible, .due__item-editer:focus-visible, .listes__view:focus-visible {
+    outline: 2px solid variables.$noir; 
+    outline-offset: 3px;
 }
