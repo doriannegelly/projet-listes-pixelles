@@ -9,6 +9,7 @@
     border-radius: 15px;
     max-width: 600px;
     border-color: transparent;
+    margin: 2rem 0;
 }
 
 .btn__supprimer:hover, .btn__ajouter:hover, .btn__modifier:hover{
@@ -37,6 +38,9 @@
     padding: 10px 16px;
     font-size: 18px;
     border: 1px solid variables.$noir;
+    color: variables.$noir;
+    text-decoration: none;
+    margin: 2rem 0;
 }
 .btn__annuler:hover {
     border: 2px solid variables.$noir;

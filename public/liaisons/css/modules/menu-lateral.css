@@ -8,7 +8,7 @@ body {
 /* wrapper entre header et footer */
 .page-layout {
   flex: 1 0 auto;
-  display: block; /* mobile: flux normal */
+  display: block;
   align-items: stretch;
 }
 
@@ -19,7 +19,6 @@ body {
   margin-left: 0;
 }
 
-/* --------- SIDEBAR (mobile par défaut) --------- */
 .sidebar {
   position: relative;
   background: #000;
@@ -34,7 +33,7 @@ body {
   height: auto;
 }
 
-/* bouton rond rose (mobile) */
+/* bouton rond rose */
 .sidebar__toggle {
   position: absolute;
   top: 15px;
@@ -50,7 +49,7 @@ body {
   cursor: pointer;
 }
 
-/* flèche (mobile) */
+/* flèche */
 .sidebar__icon {
   transition: transform 0.3s ease;
 }
@@ -59,7 +58,7 @@ body {
   transform: rotate(-180deg);
 }
 
-/* panneau mobile (caché si fermé) */
+/* panneau mobile  */
 .sidebar__panel {
   opacity: 0;
   pointer-events: none;

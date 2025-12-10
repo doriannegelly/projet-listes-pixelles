@@ -73,4 +73,9 @@
   margin-top: 10px;
 }
 
+.liste-couleur__radio:focus-visible + .liste-couleur__swatch {
+  outline: 3px solid #333;
+  outline-offset: 2px;
+}
+
 /*# sourceMappingURL=form.css.map */
