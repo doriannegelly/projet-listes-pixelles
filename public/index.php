@@ -148,9 +148,9 @@ $pdosResultat ->closecursor();
 							<div>
         		    			<input type="hidden" name="id" value="<?php echo $arrListes[$cpt]['id']; ?>">
         					</div>
-							<a class="listes__view" href="items/afficher.php?id_liste=<?php echo $arrListes[$cpt]['id']; ?>">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
+							<a class="listes__view" href="items/afficher.php?liste_id=<?php echo $arrListes[$cpt]['id']; ?>">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
 							<div class="actions__spacer">
-							<a class="listes__edit" href="listes/modifier.php?id_liste=<?php echo $arrListes[$cpt]['id']; ?>">Modifier la liste</a>
+							<a class="listes__edit" href="listes/modifier.php?liste_id=<?php echo $arrListes[$cpt]['id']; ?>">Modifier la liste</a>
 							<a href="index.php?id=<?php echo $arrListes[$cpt]['id']; ?>&nom=<?php echo $arrListes[$cpt]['nom']; ?>#modale2" class="btn__supprimer">Supprimer</a>
 							</div>
 						</form>

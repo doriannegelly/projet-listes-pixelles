@@ -119,7 +119,7 @@ $pdosResultat ->closecursor();
 	<div class="due__cards">
 					<ul class="due__list">
 						 <?php for($cpt=0;$cpt<count($arrItems);$cpt++){ ?>
-						<li class="due__item">
+						<li class="due__item" style="--couleur-tour: <?php echo "#".$arrDue[$cpt]['hexadecimal']; ?>;">
 							<div class="due__item-contenu">
 								<div class="due__card-checkbox-container">
 								<h2 class="due__card-titre"><?php echo $arrItems[$cpt]['nom'] ?></h2>
