@@ -9,7 +9,25 @@
     border-radius: 15px;
     max-width: 600px;
     border-color: transparent;
+}
 
+.btn__supprimer:hover, .btn__ajouter:hover, .btn__modifier:hover{
+        background-color: transparent;
+    border-radius: 15px;
+    padding: 10px 16px;
+    font-size: 18px;
+    border: 1px solid variables.$noir;
+   color: variables.$noir;
+}
+.btn__supprimer:focus, .btn__ajouter:focus, .btn__modifier:focus{
+        background-color: transparent;
+    border-radius: 15px;
+    padding: 10px 16px;
+    font-size: 18px;
+    border: 2px solid variables.$noir;
+   color: variables.$noir;
+   outline: 2px solid #000; 
+  outline-offset: 3px; 
 }
 
 /* Bouton annuler */
@@ -23,6 +41,13 @@
 .btn__annuler:hover {
     border: 2px solid variables.$noir;
     font-weight: bold;
+}
+
+.btn__annuler:focus{
+        border: 2px solid variables.$noir;
+    font-weight: bold;
+       outline: 2px solid #000; 
+  outline-offset: 3px; 
 }
 
 /* Ajouter item ou liste */

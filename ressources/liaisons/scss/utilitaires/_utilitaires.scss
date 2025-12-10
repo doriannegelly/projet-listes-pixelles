@@ -3,7 +3,10 @@
 * CSS des marges
 */
 @use './variables';
+body {
+    background-color: variables.$beige;
 
+}
 /* Marges */
 .conteneur {
     margin: 0 15px;
@@ -15,6 +18,3 @@
     }
 }
 
-body {
-    background-color: variables.$beige;
-}
