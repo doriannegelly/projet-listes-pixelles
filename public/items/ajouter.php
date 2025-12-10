@@ -160,8 +160,8 @@ $arrListes = $pdosResultat->fetch();
  <div id="echeance" class="echeance">
 
       <fieldset class="echeance__bloc">
-        <legend>Ajouter une échéance</legend>
 
+        <legend>Ajouter une échéance</legend>
         <!-- JOUR -->
       <label for="jour" class="visuallyhidden">Jour</label>
       <select name="jour" id="jour">
@@ -236,7 +236,8 @@ for ($a = 2016; $a <= 2030; $a++) {
 var_dump($intCodeErreur);
 if($intCodeErreur == -1){
     echo "Erreur!";
-            echo '<input type="submit" value="Ajouter" name="btn_ajouter">';
+
+            echo '<input class="btn__ajouter" type="submit" value="Ajouter" name="btn_ajouter">';
 }else {
         echo '<input class="btn__ajouter" type="submit" value="Ajouter" name="btn_ajouter">';
 }?>
