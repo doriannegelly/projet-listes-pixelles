@@ -173,8 +173,9 @@ $pdosResultat ->closecursor();
 			<section class="listes">
 				<h1 class="listes__titre">Listes</h1>
 				<ul class="listes__list">
-				<?php for($cpt=0; $cpt<count($arrListes); $cpt++){ ?>			
-					<li class="listes__item" style="--couleur-principale: <?php echo "#".$arrListes[$cpt]['hexadecimal']; ?>;   --couleur-bordure: <?php echo "#".$arrListes[$cpt]['hex_bordure']; ?>">
+				<?php for($cpt=0; $cpt<count($arrListes); $cpt++){ ?>	
+					<li class="listes__item" style="--couleur-principale: <?php echo "#".$arrListes[$cpt]['hexadecimal']; ?>;  --couleur-bordure: <?php echo "#".$arrListes[$cpt]['hex_bordure']; ?>">
+						<a class="listes__item-link" href="items/afficher.php?liste_id=<?php echo $arrListes[$cpt]['id']; ?>"></a>
 						<div class=listes__item-contenu>
 							<h2 class="list__titre"><?php echo $arrListes[$cpt]['nom']; ?></h2>
 							<p class="listes__item-count"><?php echo $arrListes[$cpt]["nombre_items"]; ?> items dans la liste</p>
@@ -187,11 +188,11 @@ $pdosResultat ->closecursor();
 							<a class="listes__view" href="items/afficher.php?liste_id=<?php echo $arrListes[$cpt]['id']; ?>">Consulter la liste<img class="listes__icone-view" src="<?php echo $niveau ?>liaisons/icones/fleche.svg" alt="Icone voir"></a>
 							<div class="actions__spacer">
 							<a class="listes__edit" href="listes/modifier.php?liste_id=<?php echo $arrListes[$cpt]['id']; ?>">Modifier la liste</a>
-							<a href="index.php?id=<?php echo $arrListes[$cpt]['id']; ?>&nom=<?php echo $arrListes[$cpt]['nom']; ?>#modale2" class="btn__supprimer">Supprimer</a>
+							<a href="index.php?id=<?php echo $arrListes[$cpt]['id']; ?>&nom=<?php echo $arrListes[$cpt]['nom']; ?>#modale2" class="btn__supprimer">Supprimer la liste</a>
 							</div>
 						</form>
 						</div>
-					</li>			
+					</li>	
 					<?php } ?>	
 					<div id="modale2" class="boiteModale">
     					<div class="boiteModale__dialogue">
