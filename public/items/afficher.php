@@ -130,7 +130,7 @@ $pdosResultat ->closecursor();
 							</div>
 							<div class="due__item-actions">
 							<?php echo $arrItems[$cpt]['est_complete'] ?>
-					<a class="btn__modifier modif_item"  href="./modifier.php?liste_id=<?php echo $strIdListe; ?>&id=<?php echo $arrItems[$cpt]['id']; ?>">Modifier l'item</a>
+					<a class="listes__edit modif_item"  href="./modifier.php?liste_id=<?php echo $strIdListe; ?>&id=<?php echo $arrItems[$cpt]['id']; ?>">Modifier l'item</a>
 <form action="afficher.php" method="get">
     <input type="hidden" name="liste_id" value="<?php echo $strIdListe; ?>">
     <input type="hidden" name="id" value="<?php echo $arrItems[$cpt]['id']; ?>">
