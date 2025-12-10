@@ -125,7 +125,7 @@ $pdosResultat->bindParam(':id', $strIdListe);
 
 $pdosResultat->execute();
 
-$arrListes = $pdosResultat->fetch();
+$arrListe = $pdosResultat->fetch();
 
     $pdosResultat ->closecursor();
 
@@ -144,8 +144,10 @@ $arrListes = $pdosResultat->fetch();
 </head>
 	<?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
 <body>
+        <div class="page-layout">
+    <?php include ($niveau . "liaisons/inc/fragments/sidebar.inc.php");?>
 <main class="conteneur"> 
-<h1><?php echo $arrListes['nom'];?></h1>
+<h1><?php echo $arrListe['nom'];?></h1>
 
 <form action="ajouter.php" method="GET">
 
@@ -250,8 +252,11 @@ echo '<a class="btn__annuler" href="./afficher.php?liste_id=' . $strIdListe . '"
 
   <script src="../liaisons/js/echeance.js"></script>
 </main> 
+</div>
 <footer>
 	    	<?php include ($niveau . "liaisons/inc/fragments/pied_de_page.inc.php");?>
 </footer>
+<script src="<?php echo $niveau; ?>liaisons/js/menu-lateral.js"></script>
+
 
 </body>

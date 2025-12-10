@@ -119,6 +119,8 @@ if (isset($_GET['btn_ajouter'])) {
 </head>
 <body>
     <?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
+    <div class="page-layout">
+    <?php include ($niveau . "liaisons/inc/fragments/sidebar.inc.php");?>
     <main>
         <div id="contenu" class="conteneur">
             <h1>Ajouter une liste</h1>
@@ -148,7 +150,9 @@ if (isset($_GET['btn_ajouter'])) {
             </form>
         </div>
     </main>
+    </div>
 
     <?php include ($niveau . "liaisons/inc/fragments/pied_de_page.inc.php");?>
+    <script src="<?php echo $niveau; ?>liaisons/js/menu-lateral.js"></script>
 </body>
 </html>

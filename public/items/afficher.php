@@ -46,7 +46,7 @@ $pdosResultat = $pdoConnexion->prepare($strRequeteListe);
 $pdosResultat->bindParam(':id', $strIdListe);
 $pdosResultat->execute();
 
-$arrListes = $pdosResultat->fetch();
+$arrListe = $pdosResultat->fetch();
 // var_dump(['liste_id' => $strIdListe, 'item_id' => $strIdItems]);
 // die;
 
@@ -105,14 +105,16 @@ $pdosResultat ->closecursor();
 	<meta charset="utf-8">
 	<title>Afficher les items d'une liste- Alice</title>
 	<?php include ($niveau . "liaisons/inc/fragments/head_links.inc.php");?>
-    
-    	<?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
+</head>
+    <?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
 <body>
+    <div class="page-layout">
+    <?php include ($niveau . "liaisons/inc/fragments/sidebar.inc.php");?>
 <main class="conteneur">
 	<a href="<?php echo $niveau;?>index.php">Retour</a>
 
 <div class="conteneur">
-	<h1><?php echo $arrListes['nom'] . ' ' . $arrListes['couleur_id'];?> </h1>
+	<h1><?php echo $arrListe['nom'] . ' ' . $arrListe['couleur_id'];?> </h1>
 
 
 <section class="items">
@@ -164,11 +166,10 @@ $pdosResultat ->closecursor();
 </div>
 <br>
 </main>
+</div>
 <footer>
     	<?php include ($niveau . "liaisons/inc/fragments/pied_de_page.inc.php");?>
 </footer>
-<script src="../liaisons/js/_menu.js"></script>
- <script>  document.body.classList.add('js');
- </script>
+<script src="<?php echo $niveau; ?>liaisons/js/menu-lateral.js"></script>
 </body>
 <html>

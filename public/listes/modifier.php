@@ -9,8 +9,8 @@ $arrMessagesErreur = array();
 $arrMessagesErreur["nom_liste"] = "";
 $arrMessagesErreur["couleurs"] = "";
 
-if (isset($_GET["id_liste"])) {
-    $id_liste = $_GET["id_liste"];
+if (isset($_GET["liste_id"])) {
+    $id_liste = $_GET["liste_id"];
 }
 
 // Fonction utilitaire pour l'affichage des boutons radio
@@ -135,6 +135,8 @@ if (isset($_GET['btn_modifier'])) {
 </head>
 <body>
     <?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
+    <div class="page-layout">
+    <?php include ($niveau . "liaisons/inc/fragments/sidebar.inc.php");?>
 
     <main>
         <div id="contenu" class="conteneur">
@@ -165,7 +167,10 @@ if (isset($_GET['btn_modifier'])) {
             </form>
         </div>
     </main>
+    </div>
 
     <?php include ($niveau . "liaisons/inc/fragments/pied_de_page.inc.php");?>
+    <script src="<?php echo $niveau; ?>liaisons/js/menu-lateral.js"></script>
+
 </body>
 </html>
