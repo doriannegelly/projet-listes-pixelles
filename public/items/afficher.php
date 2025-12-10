@@ -124,7 +124,7 @@ $pdosResultat ->closecursor();
 								<div class="due__card-checkbox-container">
 								<h2 class="due__card-titre"><?php echo $arrItems[$cpt]['nom'] ?></h2>
 								</div>
-								<p class="due__card-date"><?php echo $arrItems[$cpt]['echeance'] ?></p>
+								<p class="due__card-date"><?php echo "Date d'écheance : " . $arrItems[$cpt]['echeance'] ?></p>
 							</div>
 							<div class="due__item-actions">
 							<?php echo $arrItems[$cpt]['est_complete'] ?>
