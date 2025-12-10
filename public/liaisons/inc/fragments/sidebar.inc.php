@@ -31,7 +31,7 @@ $pdosResultat ->closecursor();
 
             <div class="sidebar__section-liens">
             <a href="<?php echo $niveau; ?>index.php" class="sidebar__link sidebar__link--home"><img src="<?php echo $niveau; ?>/liaisons/icones/maison.svg"> Accueil</a>
-            <a href="<?php echo $niveau; ?>listes/ajouter.php" class="sidebar__link"><img src="<?php echo $niveau; ?>/liaisons/icones/plus.svg"> Ajouter une liste</a>
+            <a href="<?php echo $niveau; ?>listes/ajouter.php?btn_nouveau" class="sidebar__link"><img src="<?php echo $niveau; ?>/liaisons/icones/plus.svg"> Ajouter une liste</a>
             </div>
 
             <div class="sidebar__section-listes">
