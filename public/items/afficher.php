@@ -161,8 +161,8 @@ $pdosResultat ->closecursor();
     </span>
     AJOUTER UN ITEM
 </a>
-
 </div>
+<br>
 </main>
 <footer>
     	<?php include ($niveau . "liaisons/inc/fragments/pied_de_page.inc.php");?>

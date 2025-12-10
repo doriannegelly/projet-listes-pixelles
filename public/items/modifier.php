@@ -159,12 +159,11 @@ if (isset($_GET['nom_item'])) {
 <input class="champ-formulaire__input" type="text" id="nom_item" name="nom_item" value="<?php echo $valueNomItem; ?>">
 <span><?php echo $arrMessagesErreur["nom_item"] ?></span>
 <br>
-
+<br>
  <div id="echeance" class="echeance">
 
       <fieldset class="echeance__bloc">
         <legend>Ajouter une échéance</legend>
-
         <!-- JOUR -->
       <label for="jour" class="visuallyhidden">Jour</label>
       <select name="jour" id="jour">
@@ -249,7 +248,7 @@ if($intCodeErreur == -1){
 echo '<a class="btn__annuler" href="./afficher.php?liste_id=' . $strIdListe . '">Retour vers la liste d\'item</a>';
 ?>
 </form> 
-
+<br>
   <script src="../liaisons/js/echeance.js"></script>
 </main> 
 

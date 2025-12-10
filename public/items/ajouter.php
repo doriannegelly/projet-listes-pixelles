@@ -156,7 +156,7 @@ $arrListes = $pdosResultat->fetch();
 <input class="champ-formulaire__input" type="text" id="nom_item" name="nom_item" value="">
 <span><?php echo $arrMessagesErreur["nom_item"] ?></span>
 <br>
-
+<br>
  <div id="echeance" class="echeance">
 
       <fieldset class="echeance__bloc">
@@ -245,6 +245,7 @@ if($intCodeErreur == -1){
 echo '<a class="btn__annuler" href="./afficher.php?liste_id=' . $strIdListe . '">Retour vers la liste d\'item</a>';
 ?>
 </form> 
+<br>
 
   <script src="../liaisons/js/echeance.js"></script>
 </main> 
