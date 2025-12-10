@@ -1,5 +1,5 @@
 
-var menu = {
+var menuProfil = {
   lblMenuFerme: 'Menu',
   lblMenuOuvert: 'Fermer',
   refBouton: null,
@@ -11,24 +11,10 @@ var menu = {
     //********** Création du bouton du menu mobile
 
     // On sélectionne le menu dans le HTML
-    this.refMenu = document.querySelector(".menu");
+    this.refMenu = document.querySelector(".menu-profil");
 
-    // Création du bouton et du libellé
-    this.refBouton = document.createElement("button");
-    this.refLibelle = document.createElement("span");
+    this.refBouton = document.querySelector(".profil__chevron");
 
-    // On ajoute le libellé dans le bouton
-    this.refBouton.appendChild(this.refLibelle);
-
-    // On ajoute les classes au bouton et au libellé
-    this.refBouton.className = 'menu__controle';
-    this.refLibelle.className = 'menu__libelle';
-
-    // On associe le texte du libellé à l'élément html
-    this.refLibelle.innerHTML = this.lblMenuFerme;
-
-    // Ajout du bouton dans l'entête de la page html
-this.refMenu.parentNode.insertBefore(this.refBouton, this.refMenu);
 
     // Ajout de l'écouteur d'événement sur le bouton du menu
     // this.refBouton.addEventListener('click', function () {
@@ -43,16 +29,16 @@ this.refMenu.parentNode.insertBefore(this.refBouton, this.refMenu);
     this.refMenu.classList.toggle("menu--ferme");
 
     this.refMenu.classList.toggle("menu--ouvert");
+    if (this.refMenu.classList.contains("menu--ouvert")) {
+      this.refBouton.classList.remove("profil__chevron--ferme");
+      this.refBouton.classList.add("profil__chevron--ouvert");
+      this.refBouton.setAttribute('alt', 'Fermer le menu utilisateur');
+    } else {
+      this.refBouton.classList.remove("profil__chevron--ouvert");
+      this.refBouton.classList.add("profil__chevron--ferme");
+      this.refBouton.setAttribute('alt', 'Ouvrir le menu utilisateur');
+    }
 
-    // On change le libellé du bouton selon l'état du menu
-    if (this.refMenu.classList.contains("menu--ferme"))
-    {
-      this.refLibelle.innerHTML = this.lblMenuFerme;
-    }
-    else
-    {
-      this.refLibelle.innerHTML = this.lblMenuOuvert;
-    }
   }
 };
 
@@ -61,4 +47,4 @@ this.refMenu.parentNode.insertBefore(this.refBouton, this.refMenu);
 // Écouteurs d'événements
 //*******************
 
-window.addEventListener('load', function () { menu.configurerNav(); });
+window.addEventListener('load', function () { menuProfil.configurerNav(); });

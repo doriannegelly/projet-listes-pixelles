@@ -8,7 +8,7 @@ $jsonMessages=json_decode($strFichierTexte);
 
 $id_utilisateur = 1;
 
-if (isset($_GET['btn_supprimer'])) {
+if (isset($_GET['btn_supprimer']) && isset($_GET['id'])) {
 	$id_liste = $_GET['id'];
     //Établissement de la chaine de requête suppression
     $strRequete = "DELETE FROM listes WHERE id=:id_liste";
@@ -24,7 +24,23 @@ if (isset($_GET['btn_supprimer'])) {
     var_dump($pdoConnexion->errorInfo());
     //Récuperation du code d'erreur
     $strCodeErreur = $pdoConnexion->errorCode();
-	header("Location: index.php?strCodeOperation=liste_supprimee");
+	header("Location: index.php?strCodeOperation=item_supprimee");
+}
+
+if (isset($_GET["btn_supprimer"]) && isset($_GET["id_item"])) {
+$id_item = $_GET["id_item"];
+
+$strRequete = 'DELETE FROM items WHERE id=:id';
+
+$pdosResultat = $pdoConnexion->prepare($strRequete);
+
+$pdosResultat->bindParam(':id', $id_item);
+
+$pdosResultat->execute();
+
+$pdosResultat ->closecursor();
+
+header("Location: index.php?strCodeOperation=liste_supprimee");
 }
 // LISTES 
 
@@ -60,7 +76,7 @@ for($cptEnr=0;$ligne=$pdosResultat->fetch();$cptEnr ++){
 $pdosResultat ->closecursor();
 
 // À ÉCHÉANCE
-$strRequeteDue = "SELECT items.nom AS nom_items, listes.id AS id_listes, echeance, hexadecimal FROM listes INNER JOIN items ON listes.id = items.liste_id INNER JOIN couleurs ON listes.couleur_id = couleurs.id WHERE echeance IS NOT NULL AND est_complete = 0 ORDER BY echeance ASC LIMIT 3";
+$strRequeteDue = "SELECT items.id AS id_item, items.nom AS nom_items, listes.id AS id_listes, echeance, hexadecimal FROM listes INNER JOIN items ON listes.id = items.liste_id INNER JOIN couleurs ON listes.couleur_id = couleurs.id WHERE echeance IS NOT NULL AND est_complete = 0 ORDER BY echeance ASC LIMIT 3";
 $pdosResultat = $pdoConnexion->prepare($strRequeteDue);
 $pdosResultat->execute();
 
@@ -69,6 +85,7 @@ for($cptEnr=0;$ligne=$pdosResultat->fetch();$cptEnr ++){
 	$arrDue[$cptEnr]['nom_items']=$ligne['nom_items'];
 	$arrDue[$cptEnr]['echeance']=$ligne['echeance'];
 	$arrDue[$cptEnr]['hexadecimal']=$ligne['hexadecimal'];
+	$arrDue[$cptEnr]['id_item']=$ligne['id_item'];
 }
 $pdosResultat ->closecursor();
 
@@ -103,6 +120,9 @@ $pdosResultat ->closecursor();
 			if ($_GET["strCodeOperation"] == "liste_supprimee") {
 				echo "<p style='color: green'>" . $jsonMessages->retroactions->liste->supprimer . "</p>";
 			}
+			if ($_GET["strCodeOperation"] == "item_supprimee") {
+				echo "<p style='color: green'>" . $jsonMessages->retroactions->item->supprimer . "</p>";
+			}
         	} ?>
 
 			<!-- À échéance -->
@@ -118,14 +138,33 @@ $pdosResultat ->closecursor();
 								<input class=due__card-checkbox type="checkbox">
 								<h2 class="due__card-titre"><?php echo $arrDue[$cpt]['nom_items']; ?></h2>
 								</div>
-								<p class="due__card-date">Date d'échéance: <?php echo $arrDue[$cpt]['echeance']; ?></p>
+								<p class="due__card-date">Date d'échéance: <time datetime="<?php echo $arrDue[$cpt]['echeance']; ?>"><?php echo $arrDue[$cpt]['echeance']; ?></time></p>
 							</div>
 							<div class="due__item-actions">
-								<a class="due__item-editer" href="#">Éditer Item</a>
-								<button class="btn__supprimer" type="button">Supprimer l'item</button>
+								<a class="due__item-editer" href="items/modifier.php?id=<?php echo $arrDue[$cpt]['id_item']; ?>&liste_id=<?php echo $arrListes[$cpt]['id']; ?>">Éditer Item</a>
+								<a href="index.php?id_item=<?php echo $arrDue[$cpt]['id_item']; ?>&nom_item=<?php echo $arrDue[$cpt]['nom_items']; ?>&nom_liste=<?php echo $arrListes[$cpt]['nom']; ?>#modale1" class="btn__supprimer">Supprimer l'item</a>
 							</div>
 						</li>
 						<?php } ?>
+						<div id="modale1" class="boiteModale">
+    						<div class="boiteModale__dialogue">
+    						    <div class="boiteModale__fenetre">
+    						        <header class="boiteModale__entete">
+    						            <a href="index.php#" class="btn btn--fermer">Fermer</a>
+    						        </header>
+    						        <div class="boiteModale__contenu">
+    						            <p>Voulez-vous vraiment supprimer l'item <strong><?php echo $_GET['nom_item']; ?></strong>  de la liste <?php echo $_GET['nom_liste']; ?>?</p>
+    						        </div>
+    						        <footer class="boiteModale__actions">
+										<form action="index.php" method="GET">
+										<input type="hidden" name="id_item" value="<?php echo $_GET['id_item']; ?>">
+										<a href="index.php#" class="btn">Annuler</a>
+										<input class="btn btn--danger" type="submit" value="Supprimer" name="btn_supprimer">
+										</form>
+    						        </footer>
+    						    </div>
+    						</div>
+						</div>	
 					</ul>
 				</div>
 			</section>
@@ -133,9 +172,6 @@ $pdosResultat ->closecursor();
 			<!-- Listes -->
 			<section class="listes">
 				<h1 class="listes__titre">Listes</h1>
-				<div class="listes__controls">
-					<button class="listes__filtre" type="button">Filtrer <img class="listes__icone-filtre" src="<?php echo $niveau ?>liaisons/icones/chevronNoir.svg" alt="Icone filtre"></button>
-				</div>
 				<ul class="listes__list">
 				<?php for($cpt=0; $cpt<count($arrListes); $cpt++){ ?>			
 					<li class="listes__item" style="--couleur-principale: <?php echo "#".$arrListes[$cpt]['hexadecimal']; ?>;   --couleur-bordure: <?php echo "#".$arrListes[$cpt]['hex_bordure']; ?>">
@@ -185,14 +221,6 @@ $pdosResultat ->closecursor();
 				</a>
 			</section>
 	</main>
-	
-	<!--<aside>
-        <h3>Barre latérale</h3>
-        <p>
-        	Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio rhoncus
-        </p>
-	</aside>!-->
-	
 	
 	<?php include ($niveau . "liaisons/inc/fragments/pied_de_page.inc.php");?>
 </body>

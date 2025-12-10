@@ -78,4 +78,8 @@
   outline-offset: 2px;
 }
 
+.liste-couleur__swatch:hover {
+  opacity: 0.5;
+}
+
 /*# sourceMappingURL=form.css.map */

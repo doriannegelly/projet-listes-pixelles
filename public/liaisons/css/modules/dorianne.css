@@ -118,12 +118,6 @@
   margin: 0;
 }
 
-.listes__controls {
-  grid-area: filter;
-  justify-self: end;
-  align-self: center;
-}
-
 .listes__filtre {
   background-color: transparent;
   padding: 5px 10px;

@@ -45,6 +45,8 @@
   margin-left: 15px;
   margin-right: 15px;
   min-width: 225px; 
+  position: relative;
+
 }
 
 .entete__btn-recherche {
@@ -74,6 +76,7 @@
 
 /* Profil utilisateur */
 .entete__lien-profil {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,15 +90,56 @@
   align-items: center;
   margin-right: 15px;
   margin-left: auto;
-
+  position: relative;
 }
 
 .entete__nom-profil {
-  margin: 0;
-  margin-top: 5px;
+  margin: 5px 0 0 0;
+}
+
+.utilisateur {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu--ouvert {
+  display: block;
+  position: absolute;
+  top: 60px;
+  background-color: variables.$noir;
   color: variables.$blanc;
-  font-family: mulish;
-  text-align: center;
+  z-index: 10;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  border-radius: 5px;
+  border: 1px solid variables.$blanc;
+}
+.profil__chevron--ferme {
+  rotate: 180deg;
+}
+
+.profil__chevron--ouvert {
+  rotate: 360deg;
+}
+.menu--ferme {
+  display: none;
+}
+
+.menu-profil__item a {
+  color: variables.$blanc;
+  display: block;
+  padding: 2px 10px;
+}
+.menu-profil__item a:hover {
+  font-weight: bold;
+  color: variables.$rose;
+}
+
+.entete__lien-profil {
+  text-decoration: none;
+  color: variables.$blanc;
 }
 
 @media (min-width: 700px) {
