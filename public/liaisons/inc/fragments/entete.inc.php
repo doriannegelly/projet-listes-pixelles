@@ -1,3 +1,21 @@
+<?php
+// Établissement de la chaine de requête SQL
+$strRequete = "SELECT prenom, nom, id FROM utilisateurs";
+
+//Exécution de la requête
+$pdosResultat = $pdoConnexion->prepare($strRequete);
+
+$pdosResultat->execute();
+
+$arrUtilisateur=array();
+$ligne=$pdosResultat->fetch();
+//Extraction de l'enregistrements de la BD
+$arrUtilisateur['prenom']=$ligne['prenom'];
+$arrUtilisateur['nom']=$ligne['nom'];
+$arrUtilisateur['id']=$ligne['id'];
+
+$pdosResultat ->closecursor();
+?>
 <header class="entete">
     <a class="entete__lien-logo" href="<?php echo $niveau ?>index.php"><img class="entete__logo" src="<?php echo $niveau ?>liaisons/logo/logo_1x.png" alt="Logo TODO"></a>
     <form class="entete__recherche" action="#" onsubmit="return false">
@@ -15,14 +33,14 @@
         <div class="utilisateur">
             <a class="entete__lien-profil" href="#">
                 <img class="entete__icon-profil" src="<?php echo $niveau ?>liaisons/icones/profile.svg" alt="Profil">
-                <p class="entete__nom-profil">Dorianne Gelly</p>
+                <p class="entete__nom-profil"><?php echo $arrUtilisateur['prenom'] . ' ' . $arrUtilisateur['nom']; ?></p>
             </a>
             <a href="#"><img class="profil__chevron profil__chevron--ferme" src="<?php echo $niveau ?>liaisons/icones/chevron.svg" alt="Ouvrir le menu utilisateur"></a>
         </div>
 
         <ul class="menu-profil menu--ferme">
             <li class="menu-profil__item menu-profil__bonjour">
-                Bonjour <strong>Dorianne</strong>
+                Bonjour <strong><?php echo $arrUtilisateur['prenom']; ?></strong>
             </li>
             <li class="menu-profil__item"><a href="#">Mon compte</a></li>
             <li class="menu-profil__item"><a href="#">Déconnexion</a></li>
