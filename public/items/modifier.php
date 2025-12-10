@@ -139,9 +139,8 @@ $arrListes = $pdosResultat->fetch();
 </head>
 	<?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
 <body>
-<main>
    
-<main> 
+<main class="conteneur"> 
 <h1><?php echo $arrListes['nom'];?></h1>
 
 <form action="" method="GET">
@@ -149,7 +148,7 @@ $arrListes = $pdosResultat->fetch();
     <input type="hidden" name="liste_id" value="<?php echo $strIdListe; ?>">
     <input type="hidden" name="id" value="<?php echo $strIdItems; ?>">
 
-  <label for="nom_item">Nom : </label>
+  <label class="champ-formulaire__label" for="nom_item">Nom : </label>
     <?php
 if (isset($_GET['nom_item'])) {
     $valueNomItem = $_GET['nom_item'];
@@ -157,7 +156,7 @@ if (isset($_GET['nom_item'])) {
     $valueNomItem = $arrItems['nom_item'];
 }
 ?>
-<input type="text" id="nom_item" name="nom_item" value="<?php echo $valueNomItem; ?>">
+<input class="champ-formulaire__input" type="text" id="nom_item" name="nom_item" value="<?php echo $valueNomItem; ?>">
 <span><?php echo $arrMessagesErreur["nom_item"] ?></span>
 <br>
 

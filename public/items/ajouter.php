@@ -144,17 +144,16 @@ $arrListes = $pdosResultat->fetch();
 </head>
 	<?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
 <body>
-<main>
-<main> 
+<main class="conteneur"> 
 <h1><?php echo $arrListes['nom'];?></h1>
 
 <form action="ajouter.php" method="GET">
 
     <input type="hidden" name="liste_id" value="<?php echo $strIdListe; ?>">
 
-  <label for="nom_item">Nom : </label>
+  <label class="champ-formulaire__label" for="nom_item">Nom : </label>
 
-<input type="text" id="nom_item" name="nom_item" value="">
+<input class="champ-formulaire__input" type="text" id="nom_item" name="nom_item" value="">
 <span><?php echo $arrMessagesErreur["nom_item"] ?></span>
 <br>
 
