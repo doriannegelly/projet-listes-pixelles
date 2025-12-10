@@ -19,7 +19,7 @@
     border: 1px solid variables.$noir;
    color: variables.$noir;
 }
-.btn__supprimer:focus, .btn__ajouter:focus, .btn__modifier:focus{
+.btn__supprimer:focus-visible, .btn__ajouter:focus-visible, .btn__modifier:focus-visible{
         background-color: transparent;
     border-radius: 15px;
     padding: 10px 16px;
@@ -43,7 +43,7 @@
     font-weight: bold;
 }
 
-.btn__annuler:focus{
+.btn__annuler:focus-visible{
         border: 2px solid variables.$noir;
     font-weight: bold;
        outline: 2px solid #000; 
