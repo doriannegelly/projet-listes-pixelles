@@ -102,3 +102,14 @@
     outline: 2px solid variables.$noir; 
     outline-offset: 3px;
 }
+
+.echeance__controle{
+    background-color: transparent;
+    border-radius: 15px;
+    padding: 5px 5px;
+    font-size: 18px;
+    border: 1px solid variables.$noir;
+    color: variables.$noir;
+    text-decoration: none;
+    margin: 2rem 0;
+}

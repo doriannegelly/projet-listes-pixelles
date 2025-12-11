@@ -159,9 +159,9 @@ $arrListe = $pdosResultat->fetch();
 <span><?php echo $arrMessagesErreur["nom_item"] ?></span>
 <br>
 <br>
- <div id="echeance" class="echeance">
+<div id="echeance" class="echeance" data-erreur="<?php echo ($arrMessagesErreur['echeance'] != "" ? '1' : '0'); ?>">
 
-      <fieldset class="echeance__bloc">
+<fieldset class="echeance__bloc <?php echo ($arrMessagesErreur['echeance'] != "" ? 'erreur' : ''); ?>">
 
         <legend>Ajouter une échéance</legend>
         <!-- JOUR -->
@@ -245,7 +245,7 @@ if($intCodeErreur == -1){
 }?>
 
 <?php
-echo '<a class="btn__annuler" href="./afficher.php?liste_id=' . $strIdListe . '">Retour vers la liste d\'item</a>';
+echo '<a class="btn__annuler" href="./afficher.php?liste_id=' . $strIdListe . '">Annuler</a>';
 ?>
 </form> 
 <br>

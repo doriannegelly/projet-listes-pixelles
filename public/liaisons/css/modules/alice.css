@@ -21,6 +21,16 @@
   padding: 1rem;
 }
 
+.echeance__bloc.erreur {
+  border: 2px solid red; /* contour rouge */
+  padding: 10px; /* pour éviter que le texte touche le bord */
+}
+
+.echeance__controle.erreur {
+  border: 2px solid red;
+  background-color: #ffe6e6; /* optionnel */
+}
+
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);

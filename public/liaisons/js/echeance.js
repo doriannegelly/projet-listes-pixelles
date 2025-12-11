@@ -51,9 +51,14 @@ const echeance = {
     //Ajoute le bouton construit à la div
     this.refEcheance.prepend(this.refBouton);
 
-    // Ajout de l'écouteur d'événement pour la poignée seulement
-    //this.refPoignee.addEventListener('click', this.afficherCacherBloc.bind(this));
-    //Ou pour le bouton entier
+        // Ajoute le bouton construit à la div
+this.refEcheance.prepend(this.refBouton);
+
+// Vérifie si la div a une erreur
+if (this.refEcheance.dataset.erreur === "1") {
+  this.refBouton.classList.add("erreur");
+}
+
     this.refBouton.addEventListener(
       "click",
       this.afficherCacherBloc.bind(this),

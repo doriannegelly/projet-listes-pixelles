@@ -40,10 +40,19 @@ if(isset($_GET["liste_id"]))
     
 // Requete pour le nom de la liste
 
-$strRequeteListe = 'SELECT id, nom, couleur_id FROM listes WHERE id=:id';
+$strRequeteListe = 'SELECT 
+    listes.id AS liste_id,
+    listes.nom AS nom_liste,
+    listes.couleur_id,
+    couleurs.hexadecimal 
+FROM listes 
+INNER JOIN couleurs ON listes.couleur_id = couleurs.id 
+WHERE listes.id = :id';
 
 $pdosResultat = $pdoConnexion->prepare($strRequeteListe);
 $pdosResultat->bindParam(':id', $strIdListe);
+
+
 $pdosResultat->execute();
 
 $arrListe = $pdosResultat->fetch();
@@ -80,8 +89,11 @@ if ($_GET["etat"] == 1) {
 
 if (isset($_GET["btn_supprimer"]) && isset($_GET["id"])) {
 
-
+           $strIdItem = $_GET['id_item'];
+           
 $strRequete = 'DELETE FROM items WHERE id=:id';
+
+
 
 $pdosResultat = $pdoConnexion->prepare($strRequete);
 
@@ -106,22 +118,22 @@ $pdosResultat ->closecursor();
 	<title>Afficher les items d'une liste- Alice</title>
 	<?php include ($niveau . "liaisons/inc/fragments/head_links.inc.php");?>
 </head>
-    <?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
 <body>
+        <?php include ($niveau . "liaisons/inc/fragments/entete.inc.php");?>
     <div class="page-layout">
     <?php include ($niveau . "liaisons/inc/fragments/sidebar.inc.php");?>
 <main class="conteneur">
 	<a href="<?php echo $niveau;?>index.php">Retour</a>
 
 <div class="conteneur">
-	<h1><?php echo $arrListe['nom'] . ' ' . $arrListe['couleur_id'];?> </h1>
+	<h1><?php echo $arrListe['nom_liste']?></h1>
 
 
 <section class="items">
 	<div class="due__cards">
 					<ul class="due__list">
 						 <?php for($cpt=0;$cpt<count($arrItems);$cpt++){ ?>
-						<li class="due__item" style="--couleur-tour: <?php echo "#".$arrDue[$cpt]['hexadecimal']; ?>;">
+						<li class="due__item" style="--couleur-tour: <?php echo "#".$arrListe['hexadecimal']; ?>;">
 							<div class="due__item-contenu">
 								<div class="due__card-checkbox-container">
 								<h2 class="due__card-titre"><?php echo $arrItems[$cpt]['nom'] ?></h2>
@@ -131,11 +143,12 @@ $pdosResultat ->closecursor();
 							<div class="due__item-actions">
 							<?php echo $arrItems[$cpt]['est_complete'] ?>
 					<a class="listes__edit modif_item"  href="./modifier.php?liste_id=<?php echo $strIdListe; ?>&id=<?php echo $arrItems[$cpt]['id']; ?>">Modifier l'item</a>
-<form action="afficher.php" method="get">
+
     <input type="hidden" name="liste_id" value="<?php echo $strIdListe; ?>">
     <input type="hidden" name="id" value="<?php echo $arrItems[$cpt]['id']; ?>">
-    <input  class="btn__supprimer" type="submit" name="btn_supprimer" value="Supprimer l'item">
-</form> 
+
+<a href="afficher.php?liste_id=<?php echo $strIdListe; ?>&id_item=<?php echo $arrItems[$cpt]['id']; ?>&nom_item=<?php echo $arrItems[$cpt]['nom']; ?>&nom_liste=<?php echo $arrListe['nom_liste']; ?>#modale1" class="btn__supprimer">Supprimer l'item</a>
+    
 <form action="afficher.php" method="get">
     <input type="hidden" name="liste_id" value="<?php echo $strIdListe; ?>">
     <input type="hidden" name="id" value="<?php echo $arrItems[$cpt]['id']; ?>">
@@ -153,10 +166,6 @@ $pdosResultat ->closecursor();
 					</ul>
 				</div>
 </section>
-<br>
- <?php 
-?>
-
 <a class="listes__ajouter-item" href="<?php echo './ajouter.php?liste_id=' . $strIdListe; ?>">
     <span class="ajouter-item__icone">
         <img class="ajouter-item__svg" src="<?php echo $niveau ?>liaisons/icones/plus2.svg" alt="">
@@ -170,6 +179,38 @@ $pdosResultat ->closecursor();
 <footer>
     	<?php include ($niveau . "liaisons/inc/fragments/pied_de_page.inc.php");?>
 </footer>
+
+<div id="modale1" class="boiteModale">
+    <div class="boiteModale__dialogue">
+        <div class="boiteModale__fenetre">
+            <header class="boiteModale__entete">
+                <a href="#" class="btn btn--fermer fermer-modale">Fermer</a>
+            </header>
+
+            <div class="boiteModale__contenu">
+                <p>
+                    Voulez-vous vraiment supprimer l'item 
+                    <strong id="modale-nom-item"></strong>
+                    de la liste 
+                    <span id="modale-nom-liste"></span> ?
+                </p>
+            </div>
+
+            <footer class="boiteModale__actions">
+          <form action="afficher.php" method="GET">
+    
+    <input type="hidden" name="liste_id" value="<?php echo $_GET['liste_id']; ?>">
+    <input type="hidden" name="id_item" value="<?php echo $_GET['id_item']; ?>">
+    <input type="hidden" name="nom_item" value="<?php echo $_GET['nom_item']; ?>">
+    <input type="hidden" name="nom_liste" value="<?php echo $_GET['nom_liste']; ?>">
+    <a href="afficher.php#" class="btn">Annuler</a>
+    <input class="btn btn--danger" type="submit" value="Supprimer" name="btn_supprimer">
+</form>
+            </footer>
+        </div>
+    </div>
+</div>
+
 <script src="<?php echo $niveau; ?>liaisons/js/menu-lateral.js"></script>
 </body>
-<html>
+</html>

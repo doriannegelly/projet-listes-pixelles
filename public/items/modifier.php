@@ -246,7 +246,7 @@ if($intCodeErreur == -1){
 }?>
 
 <?php
-echo '<a class="btn__annuler" href="./afficher.php?liste_id=' . $strIdListe . '">Retour vers la liste d\'item</a>';
+echo '<a class="btn__annuler" href="./afficher.php?liste_id=' . $strIdListe . '">Annuler</a>';
 ?>
 </form> 
 <br>
