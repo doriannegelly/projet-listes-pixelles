@@ -177,7 +177,7 @@ header("Location: afficher.php?liste_id=" . $strIdListe . "&strCodeOperation=ite
     <input type="hidden" name="etat" value="<?php echo $arrItems[$cpt]['est_complete']; ?>">
 
     <?php if ($arrItems[$cpt]['est_complete'] == 1) { ?>
-        <input type="submit" class="btn-completer btn-done" name="btn_completer" value="Compléter">
+        <input type="submit" class="btn-completer btn-done" name="btn_completer" value="Complété">
     <?php } else { ?>
         <input type="submit" class="btn-completer btn-todo" name="btn_completer" value="À Compléter">
     <?php } ?>

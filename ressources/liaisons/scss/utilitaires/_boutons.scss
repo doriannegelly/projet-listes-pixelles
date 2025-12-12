@@ -122,6 +122,12 @@
     border: none;
 }
 
+.btn-completer:hover{
+      background-color: variables.$rose; 
+    color: variables.$noir;
+    border:variables.$noir 2px solid;
+}
+
 /* État complété */
 .btn-done {
     background-color: variables.$rose; 
