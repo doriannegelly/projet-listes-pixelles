@@ -129,7 +129,7 @@ header("Location: afficher.php?liste_id=" . $strIdListe . "&strCodeOperation=ite
     <div class="page-layout">
     <?php include ($niveau . "liaisons/inc/fragments/sidebar.inc.php");?>
 <main class="conteneur">
-	<a href="<?php echo $niveau;?>index.php">Retour</a>
+	<a class="lien" href="<?php echo $niveau;?>index.php">Retour</a>
 
 <div class="conteneur">
 

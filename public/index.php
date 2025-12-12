@@ -170,20 +170,13 @@ $pdosResultat->bindParam(':id', $_GET["id_item"]);
     								<input type="hidden" name="id_item" value="<?php echo $arrDue[$cpt]['id_item']; ?>">
     								<input type="hidden" name="etat" value="<?php echo $arrDue[$cpt]['est_complete']; ?>">
 
-    								<?php if ($arrDue[$cpt]['est_complete'] == 1) { ?>
-    								    <input type="submit" class="btn-completer btn-done" name="btn_completer" value="Compléter">
-    								<?php } else { ?>
-    								    <input type="submit" class="btn-completer btn-todo" name="btn_completer" value="À Compléter">
-    								<?php } ?>
-								</form>
-							</div>
-
     <?php if ($arrDue[$cpt]['est_complete'] == 1) { ?>
         <input type="submit" class="btn-completer btn-done" name="btn_completer" value="Complété">
     <?php } else { ?>
         <input type="submit" class="btn-completer btn-todo" name="btn_completer" value="À Compléter">
     <?php } ?>
 </form>
+	</div>
 						</li>
 						<?php } ?>
 						

@@ -101,7 +101,7 @@
   border-bottom-left-radius: 9px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   .due__list {
     grid-template-columns: 1fr 1fr;
     gap: 3px;

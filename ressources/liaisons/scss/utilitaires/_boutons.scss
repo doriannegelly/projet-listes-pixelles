@@ -119,23 +119,69 @@
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 16px;
-    border: none;
+     border: none;
 }
 
 .btn-completer:hover{
+      background-color: variables.$blanc; 
+    color: variables.$noir;
+        border: none;
+}
+
+.btn-completer:focus{
       background-color: variables.$rose; 
     color: variables.$noir;
-    border:variables.$noir 2px solid;
+    outline: none;
 }
 
 /* État complété */
 .btn-done {
     background-color: variables.$rose; 
-    color: variables.$noir;
+      color: variables.$noir;
+      border: none;
 }
+.btn-done:hover{
+    background-color: variables.$blanc; 
+    color: variables.$noir;
+    border: none;
+       
+}
+
+.btn-done:focus{
+    background-color: variables.$rose; 
+    color: variables.$noir;
+ border: variables.$noir 2px solid;
+ outline: none;
+}
+
 
 /* État pas complété */
 .btn-todo {
     background-color: variables.$blanc; 
-    color: variables.$gris;
+    color: variables.$noir;
+      border: none;
+}
+.btn-todo:hover{
+    background-color: variables.$rose; 
+    color: variables.$noir;
+      border: none;
+}
+
+.btn-todo:focus{
+    background-color: variables.$blanc; 
+    color: variables.$noir;
+ border: variables.$noir 2px solid;
+ outline: none;
+}
+
+.lien{
+    text-decoration: underline;
+    color: variables.$noir;
+}
+.lien:hover{
+    font-weight: bold;
+}
+.lien:focus{
+    outline: 2px solid variables.$noir; 
+    outline-offset: 3px;
 }
