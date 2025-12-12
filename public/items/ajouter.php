@@ -98,11 +98,11 @@ $pdosResultat->bindParam(':liste_id', $strIdListe);
     $strCodeErreur = $pdoConnexion->errorCode();
     var_dump($strCodeErreur);
 
-    header("Location:" . "afficher.php?liste_id=".$strIdListe );
+    header("Location:" . "afficher.php?liste_id=".$strIdListe . "&strCodeOperation=item_ajoutee");
     exit();
-
-    }
 }
+}
+
 
 $strRequete = "SELECT id, nom AS nom_item, DAY(echeance) AS jour, MONTH(echeance) AS mois, YEAR(echeance) AS annee FROM items WHERE id=:id";
 

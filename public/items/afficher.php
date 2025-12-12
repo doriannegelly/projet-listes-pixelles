@@ -1,4 +1,12 @@
-	<?php $niveau="../";?>
+	<?php $niveau="../";
+    
+    
+$strFichierTexte=file_get_contents($niveau."liaisons/js/objJSONMessages.json");
+$jsonMessages=json_decode($strFichierTexte);
+
+?>
+
+    
 
 <?php
 include($niveau . "liaisons/inc/config.inc.php");
@@ -101,7 +109,7 @@ $pdosResultat->execute();
 
 $pdosResultat ->closecursor();
 
-  header("Location: afficher.php?liste_id=" . $strIdListe);
+header("Location: afficher.php?liste_id=" . $strIdListe . "&strCodeOperation=item_supprimee");
     exit();
 }
 ?>
@@ -124,6 +132,22 @@ $pdosResultat ->closecursor();
 	<a href="<?php echo $niveau;?>index.php">Retour</a>
 
 <div class="conteneur">
+
+	<div id="contenu" class="conteneur">
+			<?php if(isset($_GET["strCodeOperation"])) {
+			if ($_GET["strCodeOperation"] == "item_modifiee") {
+				echo "<p style='color: green'>" . $jsonMessages->retroactions->item->modifier . "</p>";
+			} 
+			if ($_GET["strCodeOperation"] == "item_ajoutee") {
+				echo "<p style='color: green'>" . $jsonMessages->retroactions->item->ajouter . "</p>";
+			}
+			if ($_GET["strCodeOperation"] == "item_supprimee") {
+				echo "<p style='color: green'>" . $jsonMessages->retroactions->item->supprimer . "</p>";
+			}
+        	} ?>
+</div>
+
+
 	<h1><?php echo $arrListe['nom_liste']?></h1>
 
 
@@ -139,7 +163,7 @@ $pdosResultat ->closecursor();
 								<p class="due__card-date"><?php echo "Date d'écheance : " . $arrItems[$cpt]['echeance'] ?></p>
 							</div>
 							<div class="due__item-actions">
-							<!-- <?php echo $arrItems[$cpt]['est_complete'] ?> -->
+	
 					<a class="listes__edit modif_item"  href="./modifier.php?liste_id=<?php echo $strIdListe; ?>&id=<?php echo $arrItems[$cpt]['id']; ?>">Modifier l'item</a>
 
     <input type="hidden" name="liste_id" value="<?php echo $strIdListe; ?>">

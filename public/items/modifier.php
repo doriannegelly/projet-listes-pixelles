@@ -95,7 +95,7 @@ $pdosResultat->bindParam(':echeance', $echeance);
     $strCodeErreur = $pdoConnexion->errorCode();
     var_dump($strCodeErreur);
 
-    header("Location:" . $niveau . "items/afficher.php?liste_id=".$strIdListe );
+    header("Location:" . $niveau . "items/afficher.php?liste_id=".$strIdListe . "&strCodeOperation=item_modifiee" );
     exit();
 
     }
@@ -237,7 +237,6 @@ for ($a = 2016; $a <= 2030; $a++) {
 
 <br>
 <?php
-var_dump($intCodeErreur);
 if($intCodeErreur == -1){
     echo "Erreur!";
      echo '<input class="btn__modifier" type="submit" value="Enregistrer les modifications" name="btn_modifier">';
