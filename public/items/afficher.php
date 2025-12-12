@@ -83,13 +83,11 @@ if ($_GET["etat"] == 1) {
     header("Location: afficher.php?liste_id=" . $strIdListe);
     exit();
 }
-
-
 // Delete
 
-if (isset($_GET["btn_supprimer"]) && isset($_GET["id"])) {
+if (isset($_GET["btn_supprimer"]) && isset($_GET["id_item"])) {
 
-           $strIdItem = $_GET['id_item'];
+$strIdItems = $_GET['id_item'];
            
 $strRequete = 'DELETE FROM items WHERE id=:id';
 

@@ -11,6 +11,8 @@ $arrMessagesErreur["couleurs"] = "";
 
 if (isset($_GET["liste_id"])) {
     $id_liste = $_GET["liste_id"];
+} elseif (isset($_GET["id_liste"])) {
+    $id_liste = $_GET["id_liste"];
 }
 
 // Fonction utilitaire pour l'affichage des boutons radio
