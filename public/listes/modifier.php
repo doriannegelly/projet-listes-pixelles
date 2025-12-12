@@ -142,14 +142,14 @@ if (isset($_GET['btn_modifier'])) {
 
     <main>
         <div id="contenu" class="conteneur">
-            <h1>Éditer la liste - Nom de la liste</h1>
+            <h1>Éditer la liste - <?php echo $arrListe['nom']; ?></h1>
 
             <form action="modifier.php" method="GET">
                 <input type="hidden" name="id_liste" value="<?php echo $arrListe['id']; ?>">
                 <div class="champ-formulaire">
-                    <label class="champ-formulaire__label" for="nom">Nom de la liste</label>
-                    <input class="champ-formulaire__input" type="text" name="nom" id="nom" value="<?php echo $arrListe['nom']; ?>">
-                    <span><?php echo $arrMessagesErreur["nom_liste"]?></span>
+                    <label class="champ-formulaire__label" for="nom"><?php echo $arrListe['nom']; ?></label>
+                    <input class="champ-formulaire__input <?php if (!empty($arrMessagesErreur["nom_liste"])) echo "champ-formulaire__input--erreur"; ?>" type="text" name="nom" id="nom" value="<?php echo $arrListe['nom']; ?>">
+                    <span class="message-erreur"><?php echo $arrMessagesErreur["nom_liste"]?></span>
                 </div>
                 <div class="liste-couleur">
                     <label class="liste-couleur__label" for="couleur_id">

@@ -53,6 +53,9 @@ if (isset($_GET['btn_nouveau'])) {
 
 if (isset($_GET['btn_ajouter'])) {
     $arrListe["nom"] = $_GET["nom"];
+    if (!isset($_GET["couleur_id"])) {
+        $_GET["couleur_id"] = 0;
+    }
     $arrListe["couleur_id"] = $_GET["couleur_id"];
 
     if ($arrListe["nom"] == "") {
@@ -128,8 +131,8 @@ if (isset($_GET['btn_ajouter'])) {
             <form action="ajouter.php" method="GET">
                 <div class="champ-formulaire">
                     <label class="champ-formulaire__label" for="nom">Nom de la liste</label>
-                    <input class="champ-formulaire__input" type="text" name="nom" id="nom" value="<?php echo $arrListe['nom']; ?>">
-                    <span><?php echo $arrMessagesErreur["nom_liste"]?></span>
+                    <input class="champ-formulaire__input <?php if (!empty($arrMessagesErreur["nom_liste"])) echo "champ-formulaire__input--erreur"; ?>" type="text" name="nom" id="nom" value="<?php echo $arrListe['nom']; ?>">
+                    <span class="message-erreur"><?php echo $arrMessagesErreur["nom_liste"]?></span>
                 </div>
                 <div class="liste-couleur">
                     <label class="liste-couleur__label" for="couleur_id">
@@ -141,7 +144,7 @@ if (isset($_GET['btn_ajouter'])) {
                         <label for="<?php echo $arrCouleurs[$cpt]['id']; ?>"  class="liste-couleur__swatch" style="background-color: <?php echo "#".$arrCouleurs[$cpt]['hexadecimal']; ?>;"></label>
                         <?php } ?>
                     </div>
-                    <span><?php echo $arrMessagesErreur["couleurs"]; ?></span>
+                    <span class="message-erreur"><?php echo $arrMessagesErreur["couleurs"]; ?></span>
                 </div>
                 <div>                
                     <input type="submit" value="Ajouter la liste" name="btn_ajouter" class="btn__ajouter">

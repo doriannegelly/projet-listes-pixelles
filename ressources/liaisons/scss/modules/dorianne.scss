@@ -290,3 +290,13 @@
 footer {
     margin-top : 2rem;
 }
+
+/*Erreurs*/
+.champ-formulaire__input--erreur {
+    border: 2px solid red !important;
+    outline: none;
+}
+
+.message-erreur {
+    color: red;
+}
