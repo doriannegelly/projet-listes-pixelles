@@ -53,7 +53,6 @@ $arrMessagesErreur['nom_item'] = $jsonMessageErreur->nom_item->erreurs->vide;
 $intCodeErreur = -1;
 }
 else{
-    var_dump("Test regex", preg_match('/^[a-zA-ZÀ-ÿ0-9 \'\-#]{1,55}$/', $_GET["nom_item"]));
 if(preg_match('/^[a-zA-ZÀ-ÿ0-9 \'\-#.]{1,55}$/', $_GET["nom_item"]) == false){
     $intCodeErreur = "-1";
 $arrMessagesErreur['nom_item'] = $jsonMessageErreur->nom_item->erreurs->motif;
@@ -96,7 +95,6 @@ $pdosResultat->bindParam(':liste_id', $strIdListe);
            $pdosResultat->execute();
  $strMessage = "Ajout fait";
     $strCodeErreur = $pdoConnexion->errorCode();
-    var_dump($strCodeErreur);
 
     header("Location:" . "afficher.php?liste_id=".$strIdListe . "&strCodeOperation=item_ajoutee");
     exit();
@@ -235,7 +233,7 @@ for ($a = 2016; $a <= 2030; $a++) {
 
 <br>
 <?php
-var_dump($intCodeErreur);
+
 if($intCodeErreur == -1){
     echo "Erreur!";
 

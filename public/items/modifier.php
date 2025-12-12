@@ -51,7 +51,7 @@ $arrMessagesErreur['nom_item'] = $jsonMessageErreur->nom_item->erreurs->vide;
 $intCodeErreur = -1;
 }
 else{
-    var_dump("Test regex", preg_match('/^[a-zA-ZÀ-ÿ0-9 \'\-#]{1,55}$/', $_GET["nom_item"]));
+
 if(preg_match('/^[a-zA-ZÀ-ÿ0-9 \'\-#.]{1,55}$/', $_GET["nom_item"]) == false){
     $intCodeErreur = "-1";
 $arrMessagesErreur['nom_item'] = $jsonMessageErreur->nom_item->erreurs->motif;
@@ -93,7 +93,6 @@ $pdosResultat->bindParam(':echeance', $echeance);
            $pdosResultat->execute();
  $strMessage = "Modifications enregistrées";
     $strCodeErreur = $pdoConnexion->errorCode();
-    var_dump($strCodeErreur);
 
     header("Location:" . $niveau . "items/afficher.php?liste_id=".$strIdListe . "&strCodeOperation=item_modifiee" );
     exit();

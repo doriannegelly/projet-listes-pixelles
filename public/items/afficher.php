@@ -33,7 +33,7 @@ if(isset($_GET["liste_id"]))
     $pdosResultat->execute();
 
     //Affichage des erreurs SQL
-    var_dump($pdoConnexion->errorInfo());
+
 
 	//Extraction de l'enregistrements de la BD
    $arrItems=array();
