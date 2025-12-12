@@ -76,7 +76,7 @@ for($cptEnr=0;$ligne=$pdosResultat->fetch();$cptEnr ++){
 $pdosResultat ->closecursor();
 
 // À ÉCHÉANCE
-$strRequeteDue = "SELECT items.id AS id_item, items.nom AS nom_items, listes.id AS id_listes, echeance, hexadecimal FROM listes INNER JOIN items ON listes.id = items.liste_id INNER JOIN couleurs ON listes.couleur_id = couleurs.id WHERE echeance IS NOT NULL AND est_complete = 0 ORDER BY echeance ASC LIMIT 3";
+$strRequeteDue = "SELECT items.id AS id_item, items.nom AS nom_items, items.est_complete, listes.id AS id_listes, echeance, hexadecimal FROM listes INNER JOIN items ON listes.id = items.liste_id INNER JOIN couleurs ON listes.couleur_id = couleurs.id WHERE echeance IS NOT NULL AND est_complete = 0 ORDER BY echeance ASC LIMIT 3";
 $pdosResultat = $pdoConnexion->prepare($strRequeteDue);
 $pdosResultat->execute();
 
@@ -86,8 +86,33 @@ for($cptEnr=0;$ligne=$pdosResultat->fetch();$cptEnr ++){
 	$arrDue[$cptEnr]['echeance']=$ligne['echeance'];
 	$arrDue[$cptEnr]['hexadecimal']=$ligne['hexadecimal'];
 	$arrDue[$cptEnr]['id_item']=$ligne['id_item'];
+	$arrDue[$cptEnr]['est_complete']=$ligne['est_complete'];
 }
 $pdosResultat ->closecursor();
+
+
+// État compléter
+if (isset($_GET["btn_completer"]) && isset($_GET["id_item"]) && isset($_GET["etat"])) {
+
+if ($_GET["etat"] == 1) {
+    $nouvelEtat = 0;
+} else {
+    $nouvelEtat = 1;
+}
+    $strRequete = 'UPDATE items SET est_complete = :etat WHERE id = :id';
+
+    $pdosResultat = $pdoConnexion->prepare($strRequete);
+
+    $pdosResultat->bindParam(':id', $strIdItems);
+    $pdosResultat->bindParam(':etat', $nouvelEtat);
+
+    $pdosResultat->execute();
+    $pdosResultat->closeCursor();
+
+
+    header("Location: afficher.php?liste_id=" . $strIdListe);
+    exit();
+}
 
 ?>
 
@@ -135,7 +160,6 @@ $pdosResultat ->closecursor();
 						<li class="due__item" style="--couleur-tour: <?php echo "#".$arrDue[$cpt]['hexadecimal']; ?>;">
 							<div class="due__item-contenu">
 								<div class="due__card-checkbox-container">
-								<input class=due__card-checkbox type="checkbox">
 								<h2 class="due__card-titre"><?php echo $arrDue[$cpt]['nom_items']; ?></h2>
 								</div>
 								<p class="due__card-date">Date d'échéance: <time datetime="<?php echo $arrDue[$cpt]['echeance']; ?>"><?php echo $arrDue[$cpt]['echeance']; ?></time></p>
@@ -144,8 +168,19 @@ $pdosResultat ->closecursor();
 								<a class="due__item-editer" href="items/modifier.php?id=<?php echo $arrDue[$cpt]['id_item']; ?>&liste_id=<?php echo $arrListes[$cpt]['id']; ?>">Éditer Item</a>
 								<a href="index.php?id_item=<?php echo $arrDue[$cpt]['id_item']; ?>&nom_item=<?php echo $arrDue[$cpt]['nom_items']; ?>&nom_liste=<?php echo $arrListes[$cpt]['nom']; ?>#modale1" class="btn__supprimer">Supprimer l'item</a>
 							</div>
+							<form action="index.php" method="get">
+ <input type="hidden" name="liste_id" value="<?php echo $id_liste; ?>">
+    <input type="hidden" name="id_item" value="<?php echo $arrDue[$cpt]['id_item']; ?>">
+    <input type="hidden" name="etat" value="<?php echo $arrDue[$cpt]['est_complete']; ?>">
+							  <?php if ($arrDue[$cpt]['est_complete'] == 1) { ?>
+        <input type="submit" class="btn-completer btn-done" name="btn_completer" value="Compléter">
+    <?php } else { ?>
+        <input type="submit" class="btn-completer btn-todo" name="btn_completer" value="À Compléter">
+    <?php } ?>
+	</form>
 						</li>
 						<?php } ?>
+						
 						<div id="modale1" class="boiteModale">
     						<div class="boiteModale__dialogue">
     						    <div class="boiteModale__fenetre">

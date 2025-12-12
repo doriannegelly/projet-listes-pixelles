@@ -139,7 +139,7 @@ $pdosResultat ->closecursor();
 								<p class="due__card-date"><?php echo "Date d'écheance : " . $arrItems[$cpt]['echeance'] ?></p>
 							</div>
 							<div class="due__item-actions">
-							<?php echo $arrItems[$cpt]['est_complete'] ?>
+							<!-- <?php echo $arrItems[$cpt]['est_complete'] ?> -->
 					<a class="listes__edit modif_item"  href="./modifier.php?liste_id=<?php echo $strIdListe; ?>&id=<?php echo $arrItems[$cpt]['id']; ?>">Modifier l'item</a>
 
     <input type="hidden" name="liste_id" value="<?php echo $strIdListe; ?>">
@@ -153,9 +153,9 @@ $pdosResultat ->closecursor();
     <input type="hidden" name="etat" value="<?php echo $arrItems[$cpt]['est_complete']; ?>">
 
     <?php if ($arrItems[$cpt]['est_complete'] == 1) { ?>
-        <input type="submit" name="btn_completer" value="À compléter">
+        <input type="submit" class="btn-completer btn-done" name="btn_completer" value="Compléter">
     <?php } else { ?>
-        <input type="submit" name="btn_completer" value="Compléter">
+        <input type="submit" class="btn-completer btn-todo" name="btn_completer" value="À Compléter">
     <?php } ?>
 </form>
 							</div>
@@ -201,7 +201,7 @@ $pdosResultat ->closecursor();
     <input type="hidden" name="id_item" value="<?php echo $_GET['id_item']; ?>">
     <input type="hidden" name="nom_item" value="<?php echo $_GET['nom_item']; ?>">
     <input type="hidden" name="nom_liste" value="<?php echo $_GET['nom_liste']; ?>">
-    <a href="afficher.php#" class="btn">Annuler</a>
+    <a href="afficher.php?liste_id=<?php echo $strIdListe; ?>" class="btn">Annuler</a>
     <input class="btn btn--danger" type="submit" value="Supprimer" name="btn_supprimer">
 </form>
             </footer>

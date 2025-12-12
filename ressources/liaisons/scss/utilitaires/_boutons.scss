@@ -113,3 +113,23 @@
     text-decoration: none;
     margin: 2rem 0;
 }
+
+// Bouton complété
+.btn-completer {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    border: none;
+}
+
+/* État complété */
+.btn-done {
+    background-color: variables.$rose; 
+    color: variables.$noir;
+}
+
+/* État pas complété */
+.btn-todo {
+    background-color: variables.$blanc; 
+    color: variables.$gris;
+}
