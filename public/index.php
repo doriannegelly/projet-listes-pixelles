@@ -24,7 +24,7 @@ if (isset($_GET['btn_supprimer']) && isset($_GET['id'])) {
     var_dump($pdoConnexion->errorInfo());
     //Récuperation du code d'erreur
     $strCodeErreur = $pdoConnexion->errorCode();
-	header("Location: index.php?strCodeOperation=item_supprimee");
+	header("Location: index.php?strCodeOperation=liste_supprimee");
 }
 
 if (isset($_GET["btn_supprimer"]) && isset($_GET["id_item"])) {
@@ -40,7 +40,7 @@ $pdosResultat->execute();
 
 $pdosResultat ->closecursor();
 
-header("Location: index.php?strCodeOperation=liste_supprimee");
+header("Location: index.php?strCodeOperation=item_supprimee");
 }
 // LISTES 
 
