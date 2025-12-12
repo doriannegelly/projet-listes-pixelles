@@ -103,14 +103,13 @@ if ($_GET["etat"] == 1) {
 
     $pdosResultat = $pdoConnexion->prepare($strRequete);
 
-    $pdosResultat->bindParam(':id', $strIdItems);
+$pdosResultat->bindParam(':id', $_GET["id_item"]);
     $pdosResultat->bindParam(':etat', $nouvelEtat);
 
     $pdosResultat->execute();
     $pdosResultat->closeCursor();
 
-
-    header("Location: afficher.php?liste_id=" . $strIdListe);
+    header("Location: index.php");
     exit();
 }
 
@@ -168,16 +167,16 @@ if ($_GET["etat"] == 1) {
 								<a class="due__item-editer" href="items/modifier.php?id=<?php echo $arrDue[$cpt]['id_item']; ?>&liste_id=<?php echo $arrListes[$cpt]['id']; ?>">Éditer Item</a>
 								<a href="index.php?id_item=<?php echo $arrDue[$cpt]['id_item']; ?>&nom_item=<?php echo $arrDue[$cpt]['nom_items']; ?>&nom_liste=<?php echo $arrListes[$cpt]['nom']; ?>#modale1" class="btn__supprimer">Supprimer l'item</a>
 							</div>
-							<form action="index.php" method="get">
- <input type="hidden" name="liste_id" value="<?php echo $id_liste; ?>">
+<form action="index.php" method="get">
     <input type="hidden" name="id_item" value="<?php echo $arrDue[$cpt]['id_item']; ?>">
     <input type="hidden" name="etat" value="<?php echo $arrDue[$cpt]['est_complete']; ?>">
-							  <?php if ($arrDue[$cpt]['est_complete'] == 1) { ?>
+
+    <?php if ($arrDue[$cpt]['est_complete'] == 1) { ?>
         <input type="submit" class="btn-completer btn-done" name="btn_completer" value="Compléter">
     <?php } else { ?>
         <input type="submit" class="btn-completer btn-todo" name="btn_completer" value="À Compléter">
     <?php } ?>
-	</form>
+</form>
 						</li>
 						<?php } ?>
 						
