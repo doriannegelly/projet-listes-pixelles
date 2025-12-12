@@ -34,6 +34,9 @@
   padding: 1rem 1rem 1rem 1.5rem;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .due__item-contenu {
@@ -41,7 +44,12 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 35px;
+  margin-bottom: 5px;
+}
+
+.due__item-actions .btn__supprimer {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .due__card-checkbox-container {
@@ -77,6 +85,7 @@
   flex-direction: column;
   gap: 12px;
   align-items: flex-end;
+  margin-top: auto;
 }
 
 /* trait */
